@@ -21,8 +21,8 @@ The project uses :
 ## Using Docker
 
 1. [Install Docker](https://docs.docker.com/get-docker/) on your machine
-2. Build your container: `docker build -t t1-v2-shop-ssr .`
-3. Run your container: `docker run -p 80:3001 t1-v2-shop-ssr`
+2. Build your container: `docker build -t react-nextjs-core .`
+3. Run your container: `docker run -p 80:3001 react-nextjs-core`
 
 You can view your images created with `docker images`
 
