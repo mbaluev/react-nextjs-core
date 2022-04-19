@@ -1,0 +1,18 @@
+@import "../../../../core/scss/params";
+
+.bread-crumbs__skeleton {
+  display: flex;
+
+  & .bread-crumb {
+    display: flex;
+  }
+
+  & .bread-crumb .skeleton {
+    flex: 0 0 auto;
+  }
+
+  & .bread-crumb + .bread-crumb:before {
+    content: " ";
+    margin: 0 $base;
+  }
+}

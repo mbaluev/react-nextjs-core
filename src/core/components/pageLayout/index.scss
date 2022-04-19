@@ -1,0 +1,62 @@
+@import "../../scss/params.scss";
+
+$padding: $base * 4;
+
+.page-layout {
+  position: relative;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: $base * 10;
+
+  &__filter {
+    flex: 0 0 auto;
+    background-color: $color-grey-20;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__bread-crumbs {
+    flex: 0 0 auto;
+    font-size: 1rem;
+    line-height: normal;
+    margin-top: $base * 6;
+  }
+  &__title {
+    flex: 0 0 auto;
+    font-size: 1.8rem;
+    line-height: normal;
+    font-weight: 500;
+    margin-top: $base * 6;
+  }
+  &__container {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__bread-crumbs + &__title {
+    margin-top: $base;
+  }
+  & div + &__container {
+    margin-top: $base * 6;
+  }
+
+  &__bread-crumbs,
+  &__title,
+  &__container {
+    width: $media-lg - $padding * 2;
+  }
+}
+
+@media (max-width: $media-lg) {
+  .page-layout {
+    &__bread-crumbs,
+    &__title,
+    &__container {
+      width: calc(100% - #{$padding * 2});
+    }
+  }
+}

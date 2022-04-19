@@ -1,0 +1,28 @@
+@import "../../../scss/params";
+
+.header__dot {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: $base * 4;
+  height: $base * 4;
+  background-color: $color-red;
+  border-radius: 999px;
+  border: solid $base $color-grey-230;
+  margin: 0;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: -$base;
+    right: -$base;
+    bottom: -$base;
+    left: -$base;
+
+    opacity: 0;
+    border: 2px solid $color-red;
+    border-radius: 999px;
+
+    animation: pulse 1000ms linear infinite;
+  }
+}

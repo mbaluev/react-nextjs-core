@@ -1,0 +1,150 @@
+@import "../../scss/params.scss";
+
+.button {
+  &.MuiButton-root {
+    font-family: $font-family;
+    font-size: 1rem;
+    text-transform: none;
+    box-shadow: none;
+    border-radius: $border-radius-default;
+    line-height: 1rem;
+    transition: none;
+    letter-spacing: normal;
+    border: solid 2px transparent;
+    white-space: nowrap;
+    position: relative;
+
+    &:hover {
+      box-shadow: none;
+    }
+    & .MuiButton-label {}
+  }
+
+  &.button_size_default {
+    height: $input-height;
+    padding: 0 $base * 6;
+    min-width: $base * 50;
+  }
+  &.button_size_medium {
+    height: $input-height;
+    padding: 0 $base * 6;
+    width: auto;
+  }
+  &.button_size_small {
+    height: $base * 6;
+    padding: 0 $base * 4;
+    width: auto;
+  }
+
+  &.button_icon {
+    height: $input-height;
+    padding: 0 $base * 2;
+    min-width: auto;
+
+    & .MuiButton-startIcon,
+    & .MuiButton-endIcon {
+      margin: 0;
+    }
+  }
+
+  &.MuiButton-outlined {
+    &.button_color_grey {
+      color: $color-grey-200;
+      background-color: $color-white;
+      border-color: lighten($color-grey-130, 20%);
+      &:hover {
+        border-color: $color-grey-130;
+      }
+    }
+    &.button_color_blue {
+      color: $color-blue;
+      background-color: $color-white;
+      border-color: lighten($color-blue, 20%);
+      &:hover {
+        border-color: $color-blue;
+      }
+    }
+    &.button_color_red {
+      color: $color-red;
+      background-color: $color-white;
+      border-color: lighten($color-red, 20%);
+      &:hover {
+        border-color: $color-red;
+      }
+    }
+  }
+  &.MuiButton-contained {
+    &.button_color_grey {
+      color: $color-black;
+      background-color: $color-grey-50;
+      &:hover {
+        color: $color-black;
+        background-color: darken($color-grey-50, 5%);
+      }
+    }
+    &.button_color_blue {
+      color: $color-white;
+      background-color: $color-blue;
+      &:hover {
+        color: $color-white;
+        background-color: darken($color-blue, 10%);
+      }
+    }
+    &.button_color_red {
+      color: $color-white;
+      background-color: $color-red;
+      &:hover {
+        color: $color-white;
+        background-color: darken($color-red, 10%);
+      }
+    }
+  }
+  &.MuiButton-text {
+    background-color: $color-white;
+    &.button_color_grey {
+      color: $color-black;
+      &:hover {
+        background-color: lighten($color-grey-200, 55%);
+      }
+    }
+    &.button_color_blue {
+      color: $color-blue;
+      &:hover {
+        background-color: lighten($color-blue, 42%);
+      }
+    }
+    &.button_color_red {
+      color: $color-red;
+      &:hover {
+        background-color: lighten($color-red, 38%);
+      }
+    }
+  }
+
+  &.Mui-disabled.MuiButton-root,
+  &.Mui-disabled.MuiButton-root:hover {
+    color: $color-white;
+    background-color: $color-grey-50;
+    border: solid 2px transparent;
+    pointer-events: all;
+    cursor: not-allowed;
+  }
+  &.Mui-disabled.MuiButton-outlined,
+  &.Mui-disabled.MuiButton-contained,
+  &.Mui-disabled.MuiButton-text {
+    color: $color-white;
+    border-color: transparent;
+    background-color: $color-grey-50;
+  }
+
+  &.Mui-focusVisible {
+    box-shadow: none;
+  }
+
+  &.button_icon {
+    & .MuiButton-startIcon,
+    & .MuiButton-endIcon {
+      margin: 0;
+    }
+  }
+}

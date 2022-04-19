@@ -1,0 +1,26 @@
+@import "../../../scss/params";
+
+.bread-crumb {
+  color: $color-grey-220;
+  margin-bottom: $base;
+  font-weight: 500;
+
+  &:hover {
+    color: $color-blue;
+    cursor: pointer;
+  }
+
+  &_static {
+    color: $color-grey-120;
+    font-weight: normal;
+  }
+  &_static:hover {
+    color: $color-grey-120;
+    cursor: default;
+  }
+
+  & + &:before {
+    content: "/";
+    margin: 0 $base;
+  }
+}

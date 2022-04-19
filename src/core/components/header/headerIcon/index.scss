@@ -1,0 +1,31 @@
+@import "../../../scss/params";
+
+.header__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: $header-item-height;
+  padding: 0 $base * 2;
+  color: $color-grey-100;
+  border-radius: $border-radius-default;
+
+  &:hover {
+    color: $color-white;
+    background-color: $color-grey-200;
+    cursor: pointer;
+
+    & .header__dot {
+      border-color: $color-grey-200;
+    }
+  }
+
+  &_active,
+  &_active:hover {
+    color: $color-white;
+    background-color: $color-blue;
+
+    & .header__dot {
+      border-color: $color-blue;
+    }
+  }
+}

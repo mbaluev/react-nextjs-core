@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "jsxImportSource": "@emotion/react",
+    "incremental": true,
+    "experimentalDecorators": true,
+    "paths": {
+      "@/*": ["./src/*"],
+      "@business/*": ["src/controller/business/*"],
+      "@errors/*": ["src/controller/errors/*"],
+      "@infrastructure/*": ["src/controller/infrastructure/*"],
+      "@integration/*": ["src/controller/integration/*"],
+      "@model/*": ["src/controller/model/*"],
+      "@viewModel/*": ["src/controller/viewModel/*"],
+      "@components/*": ["src/core/components/*"],
+      "@decorators/*": ["src/core/decorators/*"],
+      "@utils/*": ["src/core/utils/*"],
+      "@hooks/*": ["src/core/hooks/*"],
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
+}

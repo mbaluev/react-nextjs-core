@@ -1,0 +1,30 @@
+@import "../../../scss/params";
+
+.select-field-control {
+  overflow: hidden;
+
+  &.MuiFormControl-root {
+    & .MuiOutlinedInput-input {
+      padding-right: $base * 8;
+      line-height: $input-height;
+    }
+  }
+
+  &__menu {
+    & .MuiList-root .MuiListItem-root {
+      font-size: 1rem;
+      font-family: $font-family;
+      padding: $base + 2 $base * 2 + 2;
+    }
+
+    & &-item_disabled {
+      color: $color-grey-100;
+    }
+  }
+
+  &.field-control_no-data {
+    & .MuiInputBase-input {
+      color: $color-grey-100;
+    }
+  }
+}

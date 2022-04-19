@@ -1,0 +1,163 @@
+@import "../../scss/params";
+@import "../../scss/animations";
+
+$dialog-container-align-items: center;
+$dialog-margin-top: $base * 2;
+$dialog-margin-left: $base * 2;
+$dialog-margin-right: $base * 2;
+$dialog-margin-bottom: $base * 2;
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &-backdrop {
+    background-color: rgba($color-black, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+  &-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: $dialog-container-align-items;
+    justify-content: center;
+
+    .modal_transition & {
+      transition: opacity 100ms ease-in;
+      opacity: 0;
+    }
+    .modal_transition.modal-enter-done & {
+      opacity: 1;
+    }
+    .modal_transition.modal-exit-done & {
+      opacity: 0;
+    }
+  }
+  &-draggable {
+    display: flex;
+    max-height: 100%;
+    //overflow: hidden;
+
+    &_full-screen {
+      width: 100%;
+      height: 100%;
+      transform: translate(0, 0) !important;
+    }
+  }
+  &-dialog {
+    background-color: $color-white;
+    border-radius: $border-radius-default;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100% - #{$dialog-margin-top + $dialog-margin-bottom});
+    max-width: calc(100% - #{$dialog-margin-right + $dialog-margin-left});
+    min-width: $base * 80;
+    margin: $dialog-margin-top $dialog-margin-right $dialog-margin-bottom
+      $dialog-margin-left;
+    box-shadow: 0 11px 15px -7px rgba($color-black, 0.2),
+      0px 24px 38px 3px rgba($color-black, 0.14),
+      0px 9px 46px 8px rgba($color-black, 0.12);
+
+    //overflow: hidden;
+    //box-shadow: 0 0 0 1px rgb(53 72 91 / 14%), 0 2px 2px rgb(0 0 0 / 3%),
+    //  0 4px 4px rgb(0 0 0 / 4%), 0 10px 8px rgb(0 0 0 / 5%),
+    //  0 15px 15px rgb(0 0 0 / 6%);
+
+    &_shake {
+      animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+      //flash 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+      transform: translate(0, 0);
+      backface-visibility: hidden;
+      perspective: 1000px;
+    }
+    &_full-screen {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &-title {
+    flex: 0 0 auto;
+    padding-bottom: $base * 2;
+    margin: $base * 4;
+    display: flex;
+    border-bottom: solid 1px $color-grey-50;
+    cursor: grab;
+
+    &-text {
+      flex: 1 1 auto;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding: 10px;
+      font-size: 1.3rem;
+      font-weight: 500;
+      align-items: center;
+      display: flex;
+    }
+    &-buttons {
+      flex: 0 0 auto;
+      display: flex;
+      flex-wrap: nowrap;
+    }
+    &-button {
+      padding: 0 $base * 2;
+      border-radius: 3px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $color-grey-100;
+
+      & .MuiSvgIcon-root {
+        font-size: 2rem;
+      }
+
+      &:hover {
+        color: $color-blue;
+        cursor: pointer;
+        transition: color 0.3s;
+      }
+
+      & [class^="m-i-"],
+      & [class*=" m-i-"] {
+        font-size: 0.9rem;
+      }
+    }
+  }
+  &-content {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: $base * 6;
+
+    &-text {
+      font-size: 0.8rem;
+    }
+  }
+  &-footer {
+    flex: 0 0 auto;
+    padding: 0 $base * 6 $base * 6;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $base * 4;
+  }
+}
+
+@media (max-width: $media-xs) {
+  .modal-dialog {
+    margin: $base * 2;
+  }
+}

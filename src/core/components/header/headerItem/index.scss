@@ -1,0 +1,15 @@
+@import "../../../scss/params";
+
+.header__item {
+  display: flex;
+  margin-right: $base * 2;
+  position: relative;
+
+  &_fullwidth {
+    flex: 1 1 auto;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}

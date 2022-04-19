@@ -1,0 +1,35 @@
+@import "../../../scss/params";
+
+.error-item {
+  background: #ec3d7d;
+  border-radius: $border-radius-default;
+  margin-bottom: $base * 2;
+  padding: $base * 2;
+  font-size: 1rem;
+  display: flex;
+  width: $base * 50;
+  color: $color-white;
+  box-shadow: 0 2px 2px rgb(0 0 0 / 3%), 0 4px 4px rgb(0 0 0 / 4%);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &-message {
+    flex: 1 1 auto;
+    word-break: break-word;
+    margin-right: $base * 4;
+    min-height: $base * 4;
+    display: flex;
+    align-items: center;
+  }
+  &-button {
+    display: flex;
+    flex: 0 0 auto;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.5;
+    }
+  }
+}

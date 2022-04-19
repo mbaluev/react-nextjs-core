@@ -1,0 +1,12 @@
+@import "../../../scss/params";
+
+.text-field-control {
+  &.MuiFormControl-root {
+    & .MuiInputBase-multiline {
+      padding: $base * 2 + 2;
+    }
+    & .MuiInputBase-inputMultiline {
+      padding: 0;
+    }
+  }
+}

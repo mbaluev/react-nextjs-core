@@ -1,0 +1,54 @@
+@import "../../../scss/params";
+
+.checkbox-field-control {
+  width: fit-content;
+
+  &.MuiFormControl-root {
+    & .MuiFormControlLabel-label {
+      font-size: 1rem;
+      font-family: $font-family;
+    }
+
+    & .MuiCheckbox-root {
+      &:hover {
+        background-color: fade($color-blue, 10);
+      }
+
+      &.Mui-checked {
+        color: $color-blue;
+        & .MuiSvgIcon-root {
+          color: $color-blue;
+        }
+      }
+    }
+
+    & .Mui-disabled {
+      background-color: transparent;
+      cursor: not-allowed;
+
+      & svg {
+        fill: $color-grey-70;
+      }
+    }
+  }
+
+  &.field-control_error {
+    &.MuiFormControl-root {
+      & .MuiCheckbox-root {
+        color: $color-red;
+
+        & .MuiSvgIcon-root {
+          color: $color-red;
+        }
+
+        &:hover {
+          background-color: fade($color-red, 10);
+        }
+      }
+    }
+  }
+
+  &.field-control_is-loading {
+    width: $base * 20;
+  }
+}

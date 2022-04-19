@@ -1,0 +1,71 @@
+@import "../../../core/scss/params";
+
+.lib {
+  &-master {
+    .header {
+      padding: $base * 2 $base * 2 0;
+    }
+    .header__left {
+      flex: initial;
+      flex-wrap: wrap;
+    }
+    .header__item {
+      margin-bottom: $base * 2;
+    }
+  }
+  &-master__content {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+
+    & > .form-section > .form-section__content,
+    & .content__panel > .form-section > .form-section__content {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: $base * 4;
+
+      & > .form-field {
+        padding: 0;
+      }
+
+      &_collapsed {
+        display: none;
+      }
+    }
+
+    & #select,
+    & #multi-select,
+    & #multi-select-ext {
+      & > .form-section__content > .form-field {
+        overflow: hidden;
+      }
+    }
+
+    & #tab > .form-section__content,
+    & #content > .form-section__content {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}
+
+@media (max-width: $media-md) {
+  .lib {
+    &-master__content {
+      & > .form-section > .form-section__content,
+      & .content__panel > .form-section > .form-section__content {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+}
+
+@media (max-width: $media-sm) {
+  .lib {
+    &-master__content {
+      & > .form-section > .form-section__content,
+      & .content__panel > .form-section > .form-section__content {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+  }
+}

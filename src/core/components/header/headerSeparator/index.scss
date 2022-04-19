@@ -1,0 +1,7 @@
+@import "../../../scss/params";
+
+.header__separator {
+  height: $header-item-height;
+  width: 1px;
+  background: $color-grey-200;
+}

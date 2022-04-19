@@ -1,0 +1,39 @@
+@import "../../../scss/params";
+
+.date-field-control {
+  &.MuiFormControl-root {
+    & .MuiOutlinedInput-input {
+      text-overflow: ellipsis;
+    }
+    & .MuiOutlinedInput-adornedEnd {
+      padding-right: 0;
+    }
+  }
+
+  &__popover {
+    & .MuiPickersToolbar-toolbar,
+    & .MuiPickersDay-daySelected {
+      background-color: $color-blue;
+    }
+    & .MuiTypography-colorPrimary {
+      color: $color-blue;
+    }
+    & .MuiPickersBasePicker-pickerViewLandscape {
+      padding: 0;
+    }
+    & .MuiPickersYearSelection-container {
+      height: $base * 63;
+      overflow-y: auto;
+    }
+    & .MuiPickersCalendar-transitionContainer {
+      margin-bottom: $base * 3;
+    }
+    & .MuiPickersDay-current {
+      color: $color-blue;
+
+      &.MuiPickersDay-daySelected {
+        color: $color-white;
+      }
+    }
+  }
+}

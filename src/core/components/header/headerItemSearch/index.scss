@@ -1,0 +1,20 @@
+@import "../../../scss/params";
+
+.header-item-search {
+  flex: 1 1 auto;
+
+  &.MuiFormControl-root {
+    & .MuiInputBase-root {
+      height: $header-item-height;
+      background-color: $color-grey-200;
+      color: $color-white;
+
+      & .MuiSvgIcon-root {
+        color: $color-white;
+      }
+    }
+  }
+  & .MuiOutlinedInput-notchedOutline {
+    border: none;
+  }
+}

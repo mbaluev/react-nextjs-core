@@ -1,0 +1,55 @@
+@import "../../../scss/params";
+
+.tabs__header {
+  flex: 0 0 auto;
+  box-shadow: none;
+  z-index: 1;
+
+  & .MuiAppBar-root {
+    box-shadow: none;
+  }
+  & .MuiTabs-root {
+    overflow: visible;
+    padding: 0;
+  }
+  & .MuiTabs-fixed {
+    margin-bottom: -1px;
+  }
+  & .MuiTabs-indicator {
+    height: $base - 2;
+    border-radius: 0;
+    background-color: $color-blue;
+  }
+  & .MuiTabs-flexContainer {
+    flex-wrap: wrap;
+  }
+
+  &-item {
+    &.MuiTab-root {
+      text-transform: none;
+      min-width: auto;
+      height: $input-height;
+      max-height: $input-height;
+      min-height: $input-height;
+      padding: 0;
+      margin-right: $base * 6;
+      font-size: 1rem;
+    }
+    &.Mui-selected {
+      color: $color-blue;
+    }
+    &.Mui-disabled {
+      color: $color-grey-100;
+    }
+
+    & .MuiTab-wrapper {
+      font-size: 15px;
+    }
+
+    &:last-child {
+      &.MuiTab-root {
+        margin-right: 0;
+      }
+    }
+  }
+}

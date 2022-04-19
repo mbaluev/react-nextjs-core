@@ -1,0 +1,38 @@
+@import "../../../scss/params";
+
+.header__link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-weight: 500;
+  white-space: nowrap;
+  color: $color-grey-100;
+  font-size: 1rem;
+  cursor: pointer;
+  height: $header-item-height;
+  position: relative;
+  border-radius: $border-radius-default;
+  padding: 0 $base * 2;
+
+  &:hover {
+    color: $color-white;
+    cursor: pointer;
+    background-color: $color-grey-200;
+  }
+
+  &_active,
+  &_active:hover {
+    color: $color-white;
+    background-color: $color-blue;
+  }
+
+  & > * {
+    margin-left: $base * 3;
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  &-label {
+  }
+}

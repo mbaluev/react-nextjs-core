@@ -1,0 +1,97 @@
+@import "../../../scss/params";
+
+.header-mobile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  &__backdrop {
+    background-color: rgba($color-black, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+  &__container {
+    width: $base * 60;
+    background-color: $color-white;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    overflow: hidden;
+    box-shadow: 0 0 0 1px rgb(53 72 91 / 14%), 0 2px 2px rgb(0 0 0 / 3%),
+      0 4px 4px rgb(0 0 0 / 4%), 0 10px 8px rgb(0 0 0 / 5%),
+      0 15px 15px rgb(0 0 0 / 6%);
+  }
+  &__top {
+    background-color: $color-grey-230;
+    display: flex;
+    align-items: center;
+    height: $header-item-height;
+    padding: $base * 2;
+    box-sizing: content-box;
+    flex: 0 0 auto;
+
+    &-text {
+      flex: 1 1 auto;
+      color: $color-white;
+      text-decoration: none;
+      font-weight: 500;
+      white-space: nowrap;
+      font-size: 1.3rem;
+      padding: 0 $base * 2;
+    }
+    &-close {
+      flex: 0 0 auto;
+      color: $color-white;
+      padding: 0 $base * 2;
+
+      &:hover {
+        opacity: 0.5;
+        cursor: pointer;
+      }
+    }
+  }
+  &__content {
+    padding: $base * 2;
+    flex: 1 1 auto;
+    overflow: auto;
+  }
+
+  & .header__item {
+    margin-bottom: $base * 2;
+    margin-right: 0;
+
+    & > * {
+      color: $color-grey-200;
+      width: 100%;
+
+      &:hover {
+        color: $color-white;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  & .header__link {
+    &:hover {
+      background-color: $color-grey-30;
+      color: $color-grey-200;
+    }
+    &_active,
+    &_active:hover {
+      color: $color-white;
+      background-color: $color-blue;
+    }
+  }
+}

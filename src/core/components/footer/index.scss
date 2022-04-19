@@ -1,0 +1,30 @@
+@import "../../scss/params.scss";
+
+$padding: $base * 4;
+
+.footer {
+  padding: $base * 4 0;
+  display: flex;
+  flex: 0 0 auto;
+  background-color: $color-grey-20;
+  color: $color-grey-120;
+  justify-content: center;
+
+  &__container {
+    display: flex;
+    overflow: hidden;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    width: $media-lg - $padding * 2;
+  }
+}
+
+@media (max-width: $media-lg) {
+  .footer {
+    padding: $base * 4;
+
+    &__container {
+      width: 100%;
+    }
+  }
+}

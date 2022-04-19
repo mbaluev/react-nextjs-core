@@ -1,0 +1,30 @@
+@import '../../../less/params';
+
+@padding: 0;
+
+.header__badge {
+  position: absolute;
+  top: @padding;
+  right: @padding;
+  width: auto;
+  padding: 2px @base + 1;
+  background-color: @color-red;
+  border-radius: @border-radius-default * 1.5;
+  margin: 0;
+
+  color: @color-white;
+  font-size: 0.8rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .header__item:hover & {
+    border-color: @color-grey-200;
+  }
+
+  .header__item_active &,
+  .header__item_active:hover & {
+    border-color: @color-blue;
+  }
+}
