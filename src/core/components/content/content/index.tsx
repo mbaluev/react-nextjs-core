@@ -23,17 +23,6 @@ export const Content = (props: IContentProps) => {
   const {items, elementId, offsetTop, className} = props;
   const {active} = useScrollSpy(elementId, items, offsetTop);
 
-  // const router = useRouter();
-  // useEffect(() => {
-  //   const onHashChangeStart = () => {
-  //     setActive(window.location.hash.replace('#', ''));
-  //   };
-  //   router.events.on('hashChangeStart', onHashChangeStart);
-  //   return () => {
-  //     router.events.off('hashChangeStart', onHashChangeStart);
-  //   };
-  // }, [router.events]);
-
   const cls = classNames('content', className);
   return (
     <div className={cls}>

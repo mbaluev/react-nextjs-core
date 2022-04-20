@@ -43,11 +43,10 @@ export const MultiSelectExtFieldControls = () => {
   const renderOption = (item: ItemType) => {
     return item.name;
   };
-  const renderValue = (items: ItemType[]) => {
-    return `${items.length} ${declinationOfNumber(
-      items.length,
-      item_forms
-    )} (${items.map((item) => item.name).join(', ')})`;
+  const renderValue = (selItems: ItemType[]) => {
+    return `${selItems.length} ${declinationOfNumber(selItems.length, item_forms)} (${items
+      .map((item) => item.name)
+      .join(', ')})`;
   };
 
   const [value, setValue] = useState<unknown[] | undefined>();
@@ -115,7 +114,7 @@ export const MultiSelectExtFieldControls = () => {
           labelField="name"
           renderOption={renderOption}
           renderValue={renderValue}
-          onChange={(value?: unknown[]) => setValue(value)}
+          onChange={(onChangeValue?: unknown[]) => setValue(onChangeValue)}
           autoPopoverWidth
           multiple
         />
@@ -138,7 +137,7 @@ export const MultiSelectExtFieldControls = () => {
           labelField="name"
           renderOption={renderOption}
           renderValue={renderValue}
-          onChange={(value?: unknown[]) => setValue(value)}
+          onChange={(onChangeValue?: unknown[]) => setValue(onChangeValue)}
           autoPopoverWidth
           multiple
         />

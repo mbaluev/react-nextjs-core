@@ -26,11 +26,11 @@ export const DateFieldControl = (props: DateFieldControlProps) => {
 
   const cls = fieldControlClassNames('date-field-control', props);
 
-  return loading ? (
-    <SkeletonFieldControl className={cls} />
-  ) : isEdit ? (
-    <DateFieldControlEdit {...props} />
-  ) : (
-    <DateFieldControlView className={cls} {...other} />
-  );
+  if (loading) {
+    return <SkeletonFieldControl className={cls} />;
+  } else if (isEdit) {
+    return <DateFieldControlEdit {...props} />;
+  } else {
+    return <DateFieldControlView className={cls} {...other} />;
+  }
 };

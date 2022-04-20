@@ -6,18 +6,16 @@ import {
   ToggleButtonGroupFieldControlProps,
 } from '@components/fields';
 
-export const ToggleButtonGroupFieldControlView = (
-  props: ToggleButtonGroupFieldControlProps
-) => {
+export const ToggleButtonGroupFieldControlView = (props: ToggleButtonGroupFieldControlProps) => {
   const {className, value, exclusive} = props;
 
   const cls = classNames(className, {
     'field-control_no-data': !isToggleButtonGroupFieldControlHasData(value),
   });
 
-  const displayValue = (exclusive?: boolean) => {
+  const displayValue = (exclusiveValue?: boolean) => {
     let ret;
-    if (exclusive) {
+    if (exclusiveValue) {
       ret =
         props.items?.find((item: IToggleButtonItem) => {
           return item.value === value;
@@ -36,9 +34,7 @@ export const ToggleButtonGroupFieldControlView = (
     return ret;
   };
 
-  return typeof value !== 'undefined' &&
-    Array.isArray(value) &&
-    (value as []).length > 0 ? (
+  return typeof value !== 'undefined' && Array.isArray(value) && (value as []).length > 0 ? (
     <div className={cls}>{displayValue(exclusive)}</div>
   ) : (
     <div className={cls}>empty</div>

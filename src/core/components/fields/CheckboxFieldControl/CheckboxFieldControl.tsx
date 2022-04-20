@@ -19,11 +19,11 @@ export const CheckboxFieldControl = (props: CheckboxFieldControlProps) => {
 
   const cls = fieldControlClassNames('checkbox-field-control', props);
 
-  return loading ? (
-    <SkeletonFieldControl className={cls} />
-  ) : isEdit ? (
-    <CheckboxFieldControlEdit className={cls} {...other} />
-  ) : (
-    <CheckboxFieldControlView className={cls} {...other} />
-  );
+  if (loading) {
+    return <SkeletonFieldControl className={cls} />;
+  } else if (isEdit) {
+    return <CheckboxFieldControlEdit className={cls} {...other} />;
+  } else {
+    return <CheckboxFieldControlView className={cls} {...other} />;
+  }
 };

@@ -20,11 +20,11 @@ export const SliderFieldControl = (props: SliderFieldControlProps) => {
 
   const cls = fieldControlClassNames('slider-field-control', props);
 
-  return loading ? (
-    <SkeletonFieldControl className={cls} />
-  ) : isEdit ? (
-    <SliderFieldControlEdit className={cls} {...other} />
-  ) : (
-    <SliderFieldControlView className={cls} {...other} />
-  );
+  if (loading) {
+    return <SkeletonFieldControl className={cls} />;
+  } else if (isEdit) {
+    return <SliderFieldControlEdit className={cls} {...other} />;
+  } else {
+    return <SliderFieldControlView className={cls} {...other} />;
+  }
 };

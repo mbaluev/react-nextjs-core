@@ -11,9 +11,5 @@ export const SelectFieldControlView = (props: SelectFieldControlProps) => {
 
   const label = findSelectItem(items, value)?.label || 'empty';
 
-  return value ? (
-    <div className={cls}>{label}</div>
-  ) : (
-    <div className={cls}>empty</div>
-  );
+  return value ? <div className={cls}>{label}</div> : <div className={cls}>empty</div>;
 };

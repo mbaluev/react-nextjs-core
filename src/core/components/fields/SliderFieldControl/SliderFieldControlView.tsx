@@ -3,16 +3,15 @@ import numeral from 'numeral';
 import {classNames} from '@utils/classNames/classNames';
 import {SliderFieldControlProps} from '@components/fields';
 
-export const getSliderDisplayViewValue = (
-  value?: number | number[],
-  format?: string
-) => {
+export const getSliderDisplayViewValue = (value?: number | number[], format?: string) => {
   const f = format || '0,0';
-  return value
-    ? Array.isArray(value)
-      ? `${numeral(value[0]).format(f)} - ${numeral(value[1]).format(f)}`
-      : numeral(value).format(f)
-    : 'empty';
+  if (value && Array.isArray(value)) {
+    return `${numeral(value[0]).format(f)} - ${numeral(value[1]).format(f)}`;
+  } else if (value) {
+    return numeral(value).format(f);
+  } else {
+    return 'empty';
+  }
 };
 
 export const sliderFieldControlHasData = (
@@ -20,12 +19,7 @@ export const sliderFieldControlHasData = (
   min?: number,
   max?: number
 ) => {
-  return (
-    Boolean(value) &&
-    Array.isArray(value) &&
-    value[0] !== min &&
-    value[1] !== max
-  );
+  return Boolean(value) && Array.isArray(value) && value[0] !== min && value[1] !== max;
 };
 
 export const SliderFieldControlView = (props: SliderFieldControlProps) => {
@@ -35,8 +29,7 @@ export const SliderFieldControlView = (props: SliderFieldControlProps) => {
     'field-control_no-data': !Boolean(sliderFieldControlHasData(value)),
   });
 
-  return !value ||
-    (Array.isArray(value) && value[0] === min && value[1] === max) ? (
+  return !value || (Array.isArray(value) && value[0] === min && value[1] === max) ? (
     <div className={cls}>empty</div>
   ) : (
     <div className={cls}>

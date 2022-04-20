@@ -1,11 +1,11 @@
 import React from 'react';
 import {SliderProps} from '@mui/material';
-import {SkeletonFieldControl} from '@components/fields';
 import {
   BaseFieldControlProps,
   fieldControlClassNames,
   CountFieldControlEdit,
   CountFieldControlView,
+  SkeletonFieldControl,
 } from '@components/fields';
 
 export type CountFieldControlProps = Omit<SliderProps, 'onChange' | 'value'> &
@@ -21,11 +21,11 @@ export const CountFieldControl = (props: CountFieldControlProps) => {
 
   const cls = fieldControlClassNames('count-field-control', props);
 
-  return loading ? (
-    <SkeletonFieldControl className={cls} />
-  ) : isEdit ? (
-    <CountFieldControlEdit className={cls} {...other} />
-  ) : (
-    <CountFieldControlView className={cls} {...other} />
-  );
+  if (loading) {
+    return <SkeletonFieldControl className={cls} />;
+  } else if (isEdit) {
+    return <CountFieldControlEdit className={cls} {...other} />;
+  } else {
+    return <CountFieldControlView className={cls} {...other} />;
+  }
 };

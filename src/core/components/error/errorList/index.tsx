@@ -12,11 +12,7 @@ export const ErrorList = (props: IProps) => {
   return errors.length > 0 ? (
     <div className="error-list">
       {errors.map((item: any) => (
-        <ErrorItem
-          key={item.guid}
-          onClose={() => remove(item.guid)}
-          {...item}
-        />
+        <ErrorItem key={item.guid} onClose={() => remove(item.guid)} {...item} />
       ))}
     </div>
   ) : null;

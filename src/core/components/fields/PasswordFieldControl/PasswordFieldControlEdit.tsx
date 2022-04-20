@@ -3,24 +3,12 @@ import {IconButton, InputAdornment, TextField} from '@mui/material';
 import {Visibility, VisibilityOff} from '@mui/icons-material';
 import {useUpdateEffect} from '@hooks/useUpdateEffect';
 import {classNames} from '@utils/classNames/classNames';
-import {
-  PasswordFieldControlProps,
-  isTextFieldControlHasData,
-} from '@components/fields';
+import {PasswordFieldControlProps, isTextFieldControlHasData} from '@components/fields';
 
 export const PasswordFieldControlEdit = (props: PasswordFieldControlProps) => {
-  const {
-    className,
-    type,
-    variant,
-    value,
-    onChange,
-    InputProps,
-    disabled,
-    ...other
-  } = props;
+  const {className, type, variant, value, onChange, InputProps, disabled, ...other} = props;
 
-  const [state, setState] = useState<string | undefined>(value || '');
+  const [state, setState] = useState<string | undefined>(value);
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
   const handleClickShowPassword = () => {
@@ -45,7 +33,7 @@ export const PasswordFieldControlEdit = (props: PasswordFieldControlProps) => {
       disabled={disabled}
       type={showPassword && !disabled ? 'text' : 'password'}
       variant="outlined"
-      value={state}
+      value={state || ''}
       onChange={(e) => {
         setState(e.target.value);
         if (onChange) {

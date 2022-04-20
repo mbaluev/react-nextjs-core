@@ -1,6 +1,6 @@
 function CreateStoragePH(Storage: Storage) {
   return {
-    set: (obj: Record<string, any>, key: string, value: any): boolean => {
+    set: (_obj: Record<string, any>, key: string, value: any): boolean => {
       const sValue = Storage.getItem(key);
       if (typeof value === 'object') {
         if (sValue) {
@@ -49,7 +49,7 @@ const DefaultProps = (Storage: Storage) => {
           const value = Storage.getItem(key);
           if (value) {
             try {
-              result[key] = JSON.parse(value || '');
+              result[key] = JSON.parse(value);
             } catch (err) {
               result[key] = value;
             }

@@ -1,9 +1,6 @@
 import React from 'react';
 import {classNames} from '@utils/classNames/classNames';
-import {
-  isTextFieldControlHasData,
-  TextFieldControlProps,
-} from '@components/fields';
+import {isTextFieldControlHasData, TextFieldControlProps} from '@components/fields';
 
 export const TextFieldControlView = (props: TextFieldControlProps) => {
   const {className, value, viewFormat} = props;
@@ -12,9 +9,11 @@ export const TextFieldControlView = (props: TextFieldControlProps) => {
     'field-control_no-data': !isTextFieldControlHasData(value),
   });
 
-  return isTextFieldControlHasData(value) ? (
-    <div className={cls}>{viewFormat ? viewFormat(value) : value}</div>
-  ) : (
-    <div className={cls}>empty</div>
-  );
+  if (isTextFieldControlHasData(value) && viewFormat) {
+    return <div className={cls}>{viewFormat(value)}</div>;
+  } else if (isTextFieldControlHasData(value)) {
+    return <div className={cls}>{value}</div>;
+  } else {
+    return <div className={cls}>empty</div>;
+  }
 };

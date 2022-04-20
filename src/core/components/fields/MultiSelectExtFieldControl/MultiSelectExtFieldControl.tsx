@@ -58,11 +58,11 @@ export const MultiSelectExtFieldControl = <ItemType,>(
     props
   );
 
-  return loading ? (
-    <SkeletonFieldControl className={cls} />
-  ) : isEdit ? (
-    <MultiSelectExtFieldControlEdit className={cls} {...other} />
-  ) : (
-    <MultiSelectExtFieldControlView className={cls} {...other} />
-  );
+  if (loading) {
+    return <SkeletonFieldControl className={cls} />;
+  } else if (isEdit) {
+    return <MultiSelectExtFieldControlEdit className={cls} {...other} />;
+  } else {
+    return <MultiSelectExtFieldControlView className={cls} {...other} />;
+  }
 };

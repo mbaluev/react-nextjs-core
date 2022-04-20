@@ -14,11 +14,7 @@ export interface IMediaDTO {
   alt?: string;
 }
 
-export const useLazyImage = (
-  media: IMediaDTO,
-  className?: string,
-  muiIcon?: JSX.Element
-) => {
+export const useLazyImage = (media: IMediaDTO, className?: string, muiIcon?: JSX.Element) => {
   const [loaded, setLoaded] = useState<boolean>(false);
 
   useEffect(() => {
@@ -31,22 +27,25 @@ export const useLazyImage = (
     setLoaded(true);
   };
 
-  const LazyImage = (props: {className?: string}) => {
-    const {className} = props;
+  const LazyImage = () => {
     const cls = classNames(className, 'lazy-image');
-    return loaded ? (
-      <div className={cls}>
-        <img className="lazy-image__img" src={media.url} alt={media.alt} />
-      </div>
-    ) : media.background ? (
-      <div className={cls} style={{backgroundColor: media.background}} />
-    ) : muiIcon ? (
-      <div className={cls}>muiIcon</div>
-    ) : (
-      <div className={cls}>
-        <ImageOutlinedIcon />
-      </div>
-    );
+    if (loaded) {
+      return (
+        <div className={cls}>
+          <img className="lazy-image__img" src={media.url} alt={media.alt} />
+        </div>
+      );
+    } else if (media.background) {
+      return <div className={cls} style={{backgroundColor: media.background}} />;
+    } else if (muiIcon) {
+      return <div className={cls}>muiIcon</div>;
+    } else {
+      return (
+        <div className={cls}>
+          <ImageOutlinedIcon />
+        </div>
+      );
+    }
   };
 
   return {loaded, LazyImage};

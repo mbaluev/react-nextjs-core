@@ -2,7 +2,7 @@ import {BaseListDTO} from '@/controller/model/baseList';
 
 export function dBaseList(
   target: Object,
-  propertyKey: string | symbol,
+  _propertyKey: string | symbol,
   descriptor: TypedPropertyDescriptor<any>
 ) {
   const method = descriptor.value;

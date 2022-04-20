@@ -1,9 +1,9 @@
 import {PageLayout} from '@components/pageLayout';
 import {Master} from '@/ui/shop/master';
 
-const QuoteDetails = () => {
+const Quote = () => {
   return <PageLayout title="Quote Details">Quote Details</PageLayout>;
 };
 
-QuoteDetails.Layout = Master;
-export default QuoteDetails;
+Quote.Layout = Master;
+export default Quote;

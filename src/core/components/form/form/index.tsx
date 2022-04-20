@@ -1,5 +1,4 @@
 import React, {FC} from 'react';
-import './index.scss';
 
 export interface IFormProps {
   className?: string;

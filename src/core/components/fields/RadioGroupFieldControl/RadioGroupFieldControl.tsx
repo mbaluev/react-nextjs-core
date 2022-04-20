@@ -26,11 +26,11 @@ export const RadioGroupFieldControl = (props: RadioGroupFieldControlProps) => {
 
   const cls = fieldControlClassNames('radio-group-field-control', props);
 
-  return loading ? (
-    <SkeletonFieldControl className={cls} />
-  ) : isEdit ? (
-    <RadioGroupFieldControlEdit className={cls} {...other} />
-  ) : (
-    <RadioGroupFieldControlView className={cls} {...other} />
-  );
+  if (loading) {
+    return <SkeletonFieldControl className={cls} />;
+  } else if (isEdit) {
+    return <RadioGroupFieldControlEdit className={cls} {...other} />;
+  } else {
+    return <RadioGroupFieldControlView className={cls} {...other} />;
+  }
 };

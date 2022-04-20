@@ -32,11 +32,11 @@ export const SelectFieldControl = (props: SelectFieldControlProps) => {
 
   const cls = fieldControlClassNames('select-field-control', props);
 
-  return loading ? (
-    <SkeletonFieldControl className={cls} />
-  ) : isEdit ? (
-    <SelectFieldControlEdit className={cls} {...other} />
-  ) : (
-    <SelectFieldControlView className={cls} {...other} />
-  );
+  if (loading) {
+    return <SkeletonFieldControl className={cls} />;
+  } else if (isEdit) {
+    return <SelectFieldControlEdit className={cls} {...other} />;
+  } else {
+    return <SelectFieldControlView className={cls} {...other} />;
+  }
 };

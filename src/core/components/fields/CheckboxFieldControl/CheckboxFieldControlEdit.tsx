@@ -1,26 +1,13 @@
 import React, {useState} from 'react';
-import {
-  Checkbox,
-  FormControl,
-  FormControlLabel,
-  FormHelperText,
-} from '@mui/material';
+import {Checkbox, FormControl, FormControlLabel, FormHelperText} from '@mui/material';
 import {useUpdateEffect} from '@hooks/useUpdateEffect';
 import {classNames} from '@utils/classNames/classNames';
 import {CheckboxFieldControlProps} from '@components/fields';
 
 export const CheckboxFieldControlEdit = (props: CheckboxFieldControlProps) => {
-  const {
-    className,
-    value = false,
-    onChange,
-    label,
-    error,
-    helperText,
-    ...other
-  } = props;
+  const {className, value = false, onChange, label, error, helperText, ...other} = props;
 
-  const [state, setState] = useState<boolean>(value as boolean);
+  const [state, setState] = useState<boolean>(value);
 
   const cls = classNames(className, {
     'field-control_no-data': typeof state === 'undefined',
@@ -37,7 +24,7 @@ export const CheckboxFieldControlEdit = (props: CheckboxFieldControlProps) => {
           <Checkbox
             checked={state}
             onChange={(e, checked) => {
-              setState(e.target.checked as boolean);
+              setState(e.target.checked);
               if (onChange) {
                 onChange(e, checked);
               }
@@ -47,9 +34,7 @@ export const CheckboxFieldControlEdit = (props: CheckboxFieldControlProps) => {
         }
         label={label}
       />
-      {helperText && (
-        <FormHelperText error={!!error}>{helperText}</FormHelperText>
-      )}
+      {helperText && <FormHelperText error={!!error}>{helperText}</FormHelperText>}
     </FormControl>
   );
 };

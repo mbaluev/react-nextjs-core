@@ -8,12 +8,7 @@ import './index.scss';
 export const HeaderIcon = (props: IHeaderItemProps) => {
   const {path, query, icon, isActive, dot} = props;
 
-  const onClick = () => {};
-
-  const cls = classNames(
-    'header__icon',
-    isActive ? 'header__icon_active' : undefined
-  );
+  const cls = classNames('header__icon', isActive ? 'header__icon_active' : undefined);
 
   return (
     <Link
@@ -22,7 +17,7 @@ export const HeaderIcon = (props: IHeaderItemProps) => {
         query: query,
       }}
     >
-      <div className={cls} onClick={onClick}>
+      <div className={cls}>
         {icon}
         {dot && <HeaderDot />}
       </div>

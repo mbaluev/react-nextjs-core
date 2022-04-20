@@ -87,7 +87,7 @@ export const TagFieldControls = () => {
           valueField="id"
           labelField="name"
           limitTags={2}
-          onChange={(value?: unknown[]) => setValue(value)}
+          onChange={(onChangeValue?: unknown[]) => setValue(onChangeValue)}
           autoPopoverWidth
           multiple
         />
@@ -109,7 +109,7 @@ export const TagFieldControls = () => {
           valueField="id"
           labelField="name"
           limitTags={2}
-          onChange={(value?: unknown[]) => setValue(value)}
+          onChange={(onChangeValue?: unknown[]) => setValue(onChangeValue)}
           autoPopoverWidth
           multiple
         />

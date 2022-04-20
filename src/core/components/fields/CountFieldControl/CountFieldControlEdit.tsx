@@ -4,23 +4,10 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import {useUpdateEffect} from '@hooks/useUpdateEffect';
 import {classNames} from '@utils/classNames/classNames';
-import {
-  CountSlider,
-  CountFieldControlProps,
-  getCountDisplayViewValue,
-} from '@components/fields';
+import {CountSlider, CountFieldControlProps, getCountDisplayViewValue} from '@components/fields';
 
 export const CountFieldControlEdit = (props: CountFieldControlProps) => {
-  const {
-    value,
-    onChange,
-    className,
-    error,
-    helperText,
-    format,
-    endAdornment,
-    ...other
-  } = props;
+  const {value, onChange, className, error, helperText, format, endAdornment, ...other} = props;
 
   const [state, setState] = useState<number>(value);
 
@@ -34,7 +21,7 @@ export const CountFieldControlEdit = (props: CountFieldControlProps) => {
     setState(value);
   }, [value]);
 
-  const handleChange = (event: any, newValue: number | number[]) => {
+  const handleChange = (_event: any, newValue: number | number[]) => {
     if (!Array.isArray(newValue)) {
       setState(newValue);
     }
@@ -72,16 +59,9 @@ export const CountFieldControlEdit = (props: CountFieldControlProps) => {
         </IconButton>
       </div>
       <div className="count-field-control__slider">
-        <CountSlider
-          value={state}
-          onChange={handleChange}
-          valueLabelDisplay="off"
-          {...other}
-        />
+        <CountSlider value={state} onChange={handleChange} valueLabelDisplay="off" {...other} />
       </div>
-      {error && helperText && (
-        <FormHelperText error={error}>{helperText}</FormHelperText>
-      )}
+      {error && helperText && <FormHelperText error={error}>{helperText}</FormHelperText>}
     </FormControl>
   );
 };

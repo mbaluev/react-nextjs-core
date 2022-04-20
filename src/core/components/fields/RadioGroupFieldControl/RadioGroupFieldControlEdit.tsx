@@ -1,18 +1,10 @@
 import React, {useState} from 'react';
-import {
-  FormControl,
-  FormControlLabel,
-  FormHelperText,
-  Radio,
-  RadioGroup,
-} from '@mui/material';
+import {FormControl, FormControlLabel, FormHelperText, Radio, RadioGroup} from '@mui/material';
 import {useUpdateEffect} from '@hooks/useUpdateEffect';
 import {classNames} from '@utils/classNames/classNames';
 import {RadioGroupFieldControlProps} from '@components/fields';
 
-export const RadioGroupFieldControlEdit = (
-  props: RadioGroupFieldControlProps
-) => {
+export const RadioGroupFieldControlEdit = (props: RadioGroupFieldControlProps) => {
   const {
     className,
     value,
@@ -39,10 +31,10 @@ export const RadioGroupFieldControlEdit = (
     <FormControl className={cls} component="fieldset">
       <RadioGroup
         value={state}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>, value) => {
+        onChange={(e: React.ChangeEvent<HTMLInputElement>, onChangeValue) => {
           setState(e.target.value);
           if (onChange) {
-            onChange(e, value);
+            onChange(e, onChangeValue);
           }
         }}
         {...other}
@@ -59,9 +51,7 @@ export const RadioGroupFieldControlEdit = (
           );
         })}
       </RadioGroup>
-      {helperText && (
-        <FormHelperText error={!!error}>{helperText}</FormHelperText>
-      )}
+      {helperText && <FormHelperText error={!!error}>{helperText}</FormHelperText>}
     </FormControl>
   );
 };

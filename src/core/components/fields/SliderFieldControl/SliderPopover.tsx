@@ -14,27 +14,16 @@ export interface ISliderPopoverProps {
 }
 
 export const SliderPopover = (props: ISliderPopoverProps) => {
-  const {
-    anchorEl,
-    onClose,
-    open,
-    value,
-    setValue,
-    min = 0,
-    max = 100,
-    step,
-  } = props;
+  const {anchorEl, onClose, open, value, setValue, min = 0, max = 100, step} = props;
 
-  const [state, setState] = useState<undefined | number | number[]>(
-    value || [min, max]
-  );
+  const [state, setState] = useState<undefined | number | number[]>(value || [min, max]);
 
   const handleClear = () => {
     setValue(Array.isArray(value) ? [min, max] : undefined);
-    setState(Array.isArray(value) ? [min, max] : [min, max]);
+    setState(Array.isArray(value) ? [min, max] : undefined);
     onClose();
   };
-  const handleChange = (event: any, newValue?: number | number[]) => {
+  const handleChange = (_event: any, newValue?: number | number[]) => {
     setState(newValue);
   };
   const handleSubmit = () => {
@@ -74,12 +63,7 @@ export const SliderPopover = (props: ISliderPopoverProps) => {
           <Button size="small" variant="text" color="red" onClick={handleClear}>
             Clear
           </Button>
-          <Button
-            size="small"
-            variant="contained"
-            color="blue"
-            onClick={handleSubmit}
-          >
+          <Button size="small" variant="contained" color="blue" onClick={handleSubmit}>
             Submit
           </Button>
         </div>

@@ -18,11 +18,11 @@ export const PasswordFieldControl = (props: PasswordFieldControlProps) => {
 
   const cls = fieldControlClassNames('password-field-control', props);
 
-  return loading ? (
-    <SkeletonFieldControl className={cls} />
-  ) : isEdit ? (
-    <PasswordFieldControlEdit className={cls} {...other} />
-  ) : (
-    <PasswordFieldControlView className={cls} {...other} />
-  );
+  if (loading) {
+    return <SkeletonFieldControl className={cls} />;
+  } else if (isEdit) {
+    return <PasswordFieldControlEdit className={cls} {...other} />;
+  } else {
+    return <PasswordFieldControlView className={cls} {...other} />;
+  }
 };

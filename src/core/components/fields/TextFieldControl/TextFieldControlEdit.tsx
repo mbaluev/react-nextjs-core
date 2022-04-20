@@ -1,17 +1,13 @@
 import React, {useState} from 'react';
-import {TextField} from '@mui/material'
+import {TextField} from '@mui/material';
 import {useUpdateEffect} from '@hooks/useUpdateEffect';
 import {classNames} from '@utils/classNames/classNames';
-import {
-  isTextFieldControlHasData,
-  TextFieldControlProps,
-} from '@components/fields';
+import {isTextFieldControlHasData, TextFieldControlProps} from '@components/fields';
 
 export const TextFieldControlEdit = (props: TextFieldControlProps) => {
-  const {className, variant, value, onChange, regex, multiline, ...other} =
-    props;
+  const {className, variant, value, onChange, regex, multiline, ...other} = props;
 
-  const [state, setState] = useState<string | number | undefined>(value || '');
+  const [state, setState] = useState<string | number | undefined>(value);
 
   useUpdateEffect(() => {
     setState(value);
@@ -25,7 +21,7 @@ export const TextFieldControlEdit = (props: TextFieldControlProps) => {
     <TextField
       className={cls}
       variant="outlined"
-      value={state}
+      value={state || ''}
       multiline={multiline}
       onChange={(e) => {
         if (regex) {

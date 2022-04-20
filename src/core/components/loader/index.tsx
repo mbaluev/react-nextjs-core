@@ -12,7 +12,7 @@ export const Loader = (props: ILoaderProps) => {
   const {loading, backdrop, size} = props;
   return loading ? (
     <div className="loader">
-      {backdrop ? <div className="loader-backdrop" /> : null}
+      {backdrop && <div className="loader-backdrop" />}
       <CircularProgress size={size} />
     </div>
   ) : null;

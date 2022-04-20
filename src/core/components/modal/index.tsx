@@ -19,16 +19,8 @@ interface IModalProps {
 }
 
 export const Modal: FC<IModalProps> = (props) => {
-  const {
-    className,
-    title,
-    isOpen,
-    onClose,
-    footerButtons,
-    fullScreen,
-    allowFullScreen,
-    children,
-  } = props;
+  const {className, title, isOpen, onClose, footerButtons, fullScreen, allowFullScreen, children} =
+    props;
 
   const shake = (e: any) => {
     if (e.target === e.currentTarget) setIsShake(true);
@@ -60,14 +52,18 @@ export const Modal: FC<IModalProps> = (props) => {
     setTimeout(() => window.dispatchEvent(new Event('resize')), 0);
   }, [isFullScreen]);
 
+  const FullScreenIcon = () => {
+    if (isFullScreen) {
+      return <FullscreenExitIcon />;
+    } else {
+      return <FullscreenIcon />;
+    }
+  };
+
   return isOpen ? (
     <div className="modal">
       <div className="modal-backdrop" />
-      <div
-        className="modal-container"
-        onMouseDown={shake}
-        onAnimationEnd={shakeEnd}
-      >
+      <div className="modal-container" onMouseDown={shake} onAnimationEnd={shakeEnd}>
         <Draggable handle=".modal-title" bounds="parent">
           <div className={draggableCls}>
             <div className={dialogCls}>
@@ -75,15 +71,8 @@ export const Modal: FC<IModalProps> = (props) => {
                 <div className="modal-title-text">{title}</div>
                 <div className="modal-title-buttons">
                   {allowFullScreen && (
-                    <div
-                      className="modal-title-button"
-                      onClick={fullScreenChange}
-                    >
-                      {isFullScreen ? (
-                        <FullscreenExitIcon />
-                      ) : (
-                        <FullscreenIcon />
-                      )}
+                    <div className="modal-title-button" onClick={fullScreenChange}>
+                      <FullScreenIcon />
                     </div>
                   )}
                   <div className="modal-title-button" onClick={onCloseHandler}>
@@ -92,13 +81,13 @@ export const Modal: FC<IModalProps> = (props) => {
                 </div>
               </div>
               {children && <div className="modal-content">{children}</div>}
-              {footerButtons ? (
+              {footerButtons && (
                 <div className="modal-footer">
                   {footerButtons.map((button, index) => (
                     <Button key={index} {...button} />
                   ))}
                 </div>
-              ) : null}
+              )}
             </div>
           </div>
         </Draggable>

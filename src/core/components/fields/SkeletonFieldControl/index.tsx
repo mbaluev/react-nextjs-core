@@ -1,7 +1,6 @@
 import React from 'react';
 import {Skeleton} from '@mui/material';
 import {classNames} from '@utils/classNames/classNames';
-import './index.scss';
 
 interface IProps {
   className?: string;

@@ -7,10 +7,7 @@ import './index.scss';
 export const HeaderLink = (props: IHeaderItemProps) => {
   const {label, path, icon, isActive, query} = props;
 
-  const cls = classNames(
-    'header__link',
-    isActive ? 'header__link_active' : undefined
-  );
+  const cls = classNames('header__link', isActive ? 'header__link_active' : undefined);
 
   return (
     <Link

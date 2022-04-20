@@ -51,7 +51,7 @@ export const SliderFieldControls = () => {
           min={0}
           max={2000}
           value={value}
-          onChange={(value) => setValue(value)}
+          onChange={(onChangeValue) => setValue(onChangeValue)}
           endAdornment={getCurrencySign(CURRENCIES_KNOWN, 'EUR')}
         />
       </FormField>
@@ -70,7 +70,7 @@ export const SliderFieldControls = () => {
           min={0}
           max={2000}
           value={value}
-          onChange={(value) => setValue(value)}
+          onChange={(onChangeValue) => setValue(onChangeValue)}
           endAdornment={getCurrencySign(CURRENCIES_KNOWN, 'EUR')}
         />
       </FormField>

@@ -28,10 +28,11 @@ export const DateFieldControlEdit = (props: DateFieldControlProps) => {
       <DatePicker
         mask={mask}
         inputFormat={inputFormat}
-        renderInput={({value, ...props}) => {
+        renderInput={(inputProps) => {
+          const {value: _inputPropsValue, ...otherProps} = inputProps;
           return (
             <TextFieldControl
-              {...props}
+              {...otherProps}
               className="date-field-control"
               helperText={helperText}
               error={error}
@@ -39,10 +40,10 @@ export const DateFieldControlEdit = (props: DateFieldControlProps) => {
           );
         }}
         value={state}
-        onChange={(value) => {
-          setState(value as Date);
+        onChange={(onChangeValue) => {
+          setState(onChangeValue as Date);
           if (onChange) {
-            onChange(value as Date, props.name);
+            onChange(onChangeValue as Date, props.name);
           }
         }}
         {...other}

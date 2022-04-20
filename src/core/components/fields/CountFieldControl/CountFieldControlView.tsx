@@ -25,8 +25,6 @@ export const CountFieldControlView = (props: CountFieldControlProps) => {
   return !value ? (
     <div className={cls}>empty</div>
   ) : (
-    <div className={cls}>
-      {getCountDisplayViewValue(value, format, endAdornment)}
-    </div>
+    <div className={cls}>{getCountDisplayViewValue(value, format, endAdornment)}</div>
   );
 };

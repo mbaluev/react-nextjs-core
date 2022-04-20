@@ -2,14 +2,10 @@ import {useCallback, useEffect, useRef, useState} from 'react';
 import useThrottledOnScroll from '../useThrottledOnScroll';
 import {IContentItemProps} from '@components/content';
 
-const useScrollSpy = (
-  elementId: string,
-  items: IContentItemProps[],
-  offset?: number
-) => {
+const useScrollSpy = (elementId: string, items: IContentItemProps[], offset?: number) => {
   const itemsWithNodeRef = useRef<any[]>([]);
-  const targetItem = null;
-  const targetRect = null;
+  let targetItem = null;
+  let targetRect = null;
 
   useEffect(() => {
     itemsWithNodeRef.current = getItemsClient(items);
@@ -23,8 +19,8 @@ const useScrollSpy = (
     const itemsPos = itemsWithNodeRef.current.map((item) => {
       const {id, node} = item;
       const itemRect = node.getBoundingClientRect();
-      const targetItem = document.getElementById(elementId);
-      const targetRect = targetItem?.getBoundingClientRect();
+      targetItem = document.getElementById(elementId);
+      targetRect = targetItem?.getBoundingClientRect();
 
       const top =
         itemRect?.top +
@@ -36,14 +32,14 @@ const useScrollSpy = (
 
       return {id, top};
     });
-    const id =
+    const newActive =
       itemsPos
         .filter((item) => item.top > 0)
         .sort((a, b) => {
           return a.top - b.top;
         })[0]?.id || itemsPos[0].id;
-    if (active !== id) {
-      setActive(id);
+    if (active !== newActive) {
+      setActive(newActive);
     }
     // eslint-disable-next-line
   }, [active, offset]);

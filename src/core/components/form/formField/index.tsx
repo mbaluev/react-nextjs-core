@@ -12,8 +12,7 @@ export interface IFormFieldProps {
   disabled?: boolean;
 }
 export const FormField: FC<IFormFieldProps> = (props) => {
-  const {title, align, children, isRow, error, success, className, disabled} =
-    props;
+  const {title, align, children, isRow, error, success, className, disabled} = props;
 
   const clsMain = classNames(
     'form-field',

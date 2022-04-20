@@ -63,7 +63,7 @@ export const ToggleButtonControls = () => {
           value={value}
           items={itemsEnabled}
           isEdit={edit}
-          onChange={(e, value) => setValue(value)}
+          onChange={(_e, onChangeValue) => setValue(onChangeValue)}
           orientation="vertical"
         />
       </FormField>
@@ -80,7 +80,7 @@ export const ToggleButtonControls = () => {
           value={value}
           items={itemsEnabled}
           loading={loading}
-          onChange={(e, value) => setValue(value)}
+          onChange={(_e, onChangeValue) => setValue(onChangeValue)}
           orientation="vertical"
         />
       </FormField>

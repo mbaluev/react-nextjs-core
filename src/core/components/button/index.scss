@@ -17,7 +17,6 @@
     &:hover {
       box-shadow: none;
     }
-    & .MuiButton-label {}
   }
 
   &.button_size_default {
@@ -139,12 +138,5 @@
 
   &.Mui-focusVisible {
     box-shadow: none;
-  }
-
-  &.button_icon {
-    & .MuiButton-startIcon,
-    & .MuiButton-endIcon {
-      margin: 0;
-    }
   }
 }

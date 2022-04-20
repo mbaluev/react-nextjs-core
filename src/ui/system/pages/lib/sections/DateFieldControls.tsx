@@ -23,11 +23,7 @@ export const DateFieldControls = () => {
         >
           {edit ? 'view' : 'edit'}
         </Button>
-        <DateFieldControl
-          value={value}
-          isEdit={edit}
-          onChange={(date, name) => setValue(date)}
-        />
+        <DateFieldControl value={value} isEdit={edit} onChange={(date, _name) => setValue(date)} />
       </FormField>
       <FormField title="3. DateFieldControl loading">
         <Button
@@ -41,7 +37,7 @@ export const DateFieldControls = () => {
         <DateFieldControl
           value={value}
           loading={loading}
-          onChange={(date, name) => setValue(date)}
+          onChange={(date, _name) => setValue(date)}
         />
       </FormField>
     </FormSection>

@@ -105,8 +105,6 @@
     }
   }
 
-  &_is-edit {
-  }
   &_is-view {
     min-height: $input-height;
     display: flex;
@@ -128,7 +126,7 @@
   }
 
   &_no-data {
-    color: $color-grey-50;
+    color: $color-grey-100;
   }
   &_disabled {
     cursor: not-allowed;

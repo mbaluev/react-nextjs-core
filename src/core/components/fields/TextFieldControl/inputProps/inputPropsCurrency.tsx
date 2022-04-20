@@ -2,10 +2,7 @@ import React from 'react';
 import {InputAdornment} from '@mui/material';
 import {EditFormatNumber} from '@components/fields';
 
-export const getCurrencySign = (
-  currencies?: Record<string, string>,
-  codeLat: string = 'USD'
-) => {
+export const getCurrencySign = (currencies?: Record<string, string>, codeLat: string = 'USD') => {
   return currencies && currencies[codeLat] ? currencies[codeLat] : codeLat;
 };
 

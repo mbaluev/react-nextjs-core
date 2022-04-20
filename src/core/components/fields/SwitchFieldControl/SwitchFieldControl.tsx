@@ -20,11 +20,11 @@ export const SwitchFieldControl = (props: SwitchFieldControlProps) => {
 
   const cls = fieldControlClassNames('switch-field-control', props);
 
-  return loading ? (
-    <SkeletonFieldControl className={cls} />
-  ) : isEdit ? (
-    <SwitchFieldControlEdit className={cls} {...other} />
-  ) : (
-    <SwitchFieldControlView className={cls} {...other} />
-  );
+  if (loading) {
+    return <SkeletonFieldControl className={cls} />;
+  } else if (isEdit) {
+    return <SwitchFieldControlEdit className={cls} {...other} />;
+  } else {
+    return <SwitchFieldControlView className={cls} {...other} />;
+  }
 };

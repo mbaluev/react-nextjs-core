@@ -16,7 +16,7 @@ export const SwitchFieldControlEdit = (props: SwitchFieldControlProps) => {
     ...other
   } = props;
 
-  const [state, setState] = useState<boolean>(value as boolean);
+  const [state, setState] = useState<boolean>(value);
 
   const cls = classNames(className, {
     'field-control_no-data': typeof state === 'undefined',
@@ -33,7 +33,7 @@ export const SwitchFieldControlEdit = (props: SwitchFieldControlProps) => {
           <Switch
             checked={state}
             onChange={(e, checked) => {
-              setState(e.target.checked as boolean);
+              setState(e.target.checked);
               if (onChange) {
                 onChange(e, checked);
               }
@@ -44,9 +44,7 @@ export const SwitchFieldControlEdit = (props: SwitchFieldControlProps) => {
         label={label}
         labelPlacement={labelPlacement}
       />
-      {helperText && (
-        <FormHelperText error={!!error}>{helperText}</FormHelperText>
-      )}
+      {helperText && <FormHelperText error={!!error}>{helperText}</FormHelperText>}
     </FormControl>
   );
 };
