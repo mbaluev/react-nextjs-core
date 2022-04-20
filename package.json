@@ -1,5 +1,5 @@
 {
-  "name": "react-nextjs-core",
+  "name": "t1-v2-shop-ssr",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -7,40 +7,42 @@
     "build": "next build",
     "start": "next start -p 3000",
     "lint": "next lint",
-    "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"
+    "sonar": "ts-node sonar-scanner.ts"
   },
   "dependencies": {
-    "@emotion/cache": "latest",
-    "@emotion/react": "latest",
-    "@emotion/server": "latest",
-    "@emotion/styled": "latest",
-    "@mui/icons-material": "latest",
-    "@mui/lab": "^5.0.0-alpha.76",
-    "@mui/material": "latest",
-    "@types/lodash": "^4.14.181",
+    "@emotion/cache": "^11.7.1",
+    "@emotion/react": "^11.9.0",
+    "@emotion/server": "^11.4.0",
+    "@emotion/styled": "^11.8.1",
+    "@mui/icons-material": "^5.6.2",
+    "@mui/lab": "^5.0.0-alpha.78",
+    "@mui/material": "^5.6.2",
+    "@types/lodash": "^4.14.182",
     "@types/numeral": "^2.0.2",
+    "@types/react": "17.0.38",
+    "@types/react-dom": "^18.0.1",
     "axios": "^0.26.1",
     "date-fns": "^2.28.0",
     "inversify": "^6.0.1",
-    "latest": "^0.2.0",
     "lodash": "^4.17.21",
     "mobx": "^6.5.0",
     "mobx-react": "^7.3.0",
-    "moment": "^2.29.2",
-    "next": "latest",
+    "moment": "^2.29.3",
+    "next": "^12.1.5",
     "numeral": "^2.0.6",
-    "react": "latest",
-    "react-dom": "latest",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-draggable": "^4.4.4",
-    "react-number-format": "^4.9.1",
-    "sass": "^1.50.0"
+    "react-number-format": "^4.9.1"
   },
   "devDependencies": {
-    "@types/node": "latest",
-    "@types/react": "latest",
-    "eslint": "latest",
-    "eslint-config-next": "latest",
+    "@types/node": "^17.0.25",
+    "eslint": "^8.13.0",
+    "eslint-config-next": "^12.1.5",
     "prettier": "^2.6.2",
-    "typescript": "latest"
+    "sass": "^1.50.1",
+    "sonarqube-scanner": "^2.8.1",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.3"
   }
 }
