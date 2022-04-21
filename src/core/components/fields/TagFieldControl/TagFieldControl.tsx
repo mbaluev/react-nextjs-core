@@ -14,7 +14,9 @@ export type TagFieldControlProps<ItemType> = Omit<
   limitTags?: number;
 };
 
-export const TagFieldControl = <ItemType,>(props: TagFieldControlProps<ItemType>) => {
+export const TagFieldControl = <ItemType,>(
+  props: TagFieldControlProps<ItemType>
+) => {
   const {
     valueField = 'value' as keyof ItemType,
     labelField = 'label' as keyof ItemType,
@@ -34,7 +36,9 @@ export const TagFieldControl = <ItemType,>(props: TagFieldControlProps<ItemType>
     return (
       <div className="tag-field-control__option">
         <Tag>{item[labelField]}</Tag>
-        <div className="tag-field-control__option-count">{item[countField]}</div>
+        <div className="tag-field-control__option-count">
+          {item[countField]}
+        </div>
       </div>
     );
   };
@@ -48,7 +52,9 @@ export const TagFieldControl = <ItemType,>(props: TagFieldControlProps<ItemType>
             return <Tag key={index}>{item[labelField]}</Tag>;
           })}
         {limit && selItems.length > limit && (
-          <div className="tag-field-control__tags-more">+{selItems.length - limit}</div>
+          <div className="tag-field-control__tags-more">
+            +{selItems.length - limit}
+          </div>
         )}
       </Tags>
     );

@@ -4,7 +4,7 @@ import {FormField, FormSection} from '@components/form';
 import {MultiSelectExtFieldControl} from '@components/fields';
 import {Button} from '@components/button';
 
-const item_forms = ['item', 'items'];
+const ITEM_FORMS = ['item', 'items'];
 
 interface ItemType {
   id: string;
@@ -44,9 +44,10 @@ export const MultiSelectExtFieldControls = () => {
     return item.name;
   };
   const renderValue = (selItems: ItemType[]) => {
-    return `${selItems.length} ${declinationOfNumber(selItems.length, item_forms)} (${items
-      .map((item) => item.name)
-      .join(', ')})`;
+    return `${selItems.length} ${declinationOfNumber(
+      selItems.length,
+      ITEM_FORMS
+    )} (${items.map((item) => item.name).join(', ')})`;
   };
 
   const [value, setValue] = useState<unknown[] | undefined>();

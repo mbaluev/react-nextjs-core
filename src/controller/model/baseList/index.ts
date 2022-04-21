@@ -12,15 +12,19 @@ export interface IBaseListDTO<T> {
 }
 
 export class BaseListDTO<T> implements IBaseListDTO<T> {
-  page: number = 1;
-  pageSize: number = 5;
-  continuation: boolean = true;
+  page = 1;
+
+  pageSize = 5;
+
+  continuation = true;
+
   hints: IHintDTO[] = [
     {
       message: 'this is list',
       level: 'INFO',
     },
   ];
+
   items: T[] = [];
 
   constructor(data?: T[]) {

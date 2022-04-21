@@ -1,8 +1,15 @@
 import {useEffect, useMemo} from 'react';
 import throttle from 'lodash/throttle';
 
-const useThrottledOnScroll = (elementId: string, callback: () => void, delay: number) => {
-  const throttledCallback = useMemo(() => throttle(callback, delay), [callback, delay]);
+const useThrottledOnScroll = (
+  elementId: string,
+  callback: () => void,
+  delay: number
+) => {
+  const throttledCallback = useMemo(
+    () => throttle(callback, delay),
+    [callback, delay]
+  );
 
   useEffect(() => {
     const element = document.getElementById(elementId);

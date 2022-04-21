@@ -71,27 +71,16 @@ export const MultiSelectExtFieldControlEdit = <ItemType,>(
     classNameMenu ? classNameMenu : undefined
   );
 
-  const clearAll = () => {
-    setSearchText('');
-    setState([]);
-    if (onChange) onChange([], other.name);
-  };
-  const selectAll = () => {
-    const values = items?.map((d) => {
-      return d[valueField];
-    });
-    setState(values);
-    if (onChange) onChange(values, other.name);
-  };
-
   const [searchText, setSearchText] = useState<string>('');
   const search = (item: ItemType, searchString: string) => {
     let ret = false;
-    for (let key in item) {
+    for (const key in item) {
       if (
         key !== valueField &&
         typeof item[key] === 'string' &&
-        (item[key] as unknown as string).toLowerCase().indexOf(searchString.toLowerCase()) >= 0
+        (item[key] as unknown as string)
+          .toLowerCase()
+          .indexOf(searchString.toLowerCase()) >= 0
       ) {
         ret = true;
       }
@@ -102,13 +91,17 @@ export const MultiSelectExtFieldControlEdit = <ItemType,>(
     setSearchText(e.target.value);
   };
   const itemsFiltered = useMemo(() => {
-    const _items = items?.filter((item) => search(item, searchText));
+    const fItems = items?.filter((item) => search(item, searchText));
     return displaySelectedFirst
-      ? _items
+      ? fItems
           ?.filter((_item) => state?.includes(_item[valueField]))
-          .sort((a, b) => stringCompare(String(a[valueField]), String(b[valueField])))
-          .concat(_items?.filter((_item) => !state?.includes(_item[valueField])))
-      : _items;
+          .sort((a, b) =>
+            stringCompare(String(a[valueField]), String(b[valueField]))
+          )
+          .concat(
+            fItems?.filter((_item) => !state?.includes(_item[valueField]))
+          )
+      : fItems;
     // eslint-disable-next-line
   }, [searchText, state, items, valueField]);
 
@@ -142,6 +135,19 @@ export const MultiSelectExtFieldControlEdit = <ItemType,>(
     if (onClose) onClose(state, other.name);
   };
 
+  const clearAll = () => {
+    setSearchText('');
+    setState([]);
+    if (onChange) onChange([], other.name);
+  };
+  const selectAll = () => {
+    const values = items?.map((d) => {
+      return d[valueField];
+    });
+    setState(values);
+    if (onChange) onChange(values, other.name);
+  };
+
   return (
     <FormControl variant="outlined" className={cls}>
       {label ? <InputLabel id="label">{label}</InputLabel> : null}
@@ -170,7 +176,9 @@ export const MultiSelectExtFieldControlEdit = <ItemType,>(
         multiple
         {...other}
       />
-      {helperText && <FormHelperText error={!!error}>{helperText}</FormHelperText>}
+      {helperText && (
+        <FormHelperText error={!!error}>{helperText}</FormHelperText>
+      )}
       <Popover
         open={open}
         anchorEl={selectRef.current}
@@ -212,23 +220,34 @@ export const MultiSelectExtFieldControlEdit = <ItemType,>(
         </div>
         <div className="multi-select-ext-field-control__content">
           {(!itemsFiltered || itemsFiltered?.length === 0) && (
-            <div className="multi-select-ext-field-control__menu-item_no-data">not found</div>
+            <div className="multi-select-ext-field-control__menu-item_no-data">
+              not found
+            </div>
           )}
           {itemsFiltered?.map((item, index) => {
             const checked = state?.includes(item[valueField]);
-            const clsItem = classNames('multi-select-ext-field-control__menu-item', {
-              'multi-select-ext-field-control__menu-item_checked': Boolean(
-                checked && !displayCheckboxes
-              ),
-            });
+            const clsItem = classNames(
+              'multi-select-ext-field-control__menu-item',
+              {
+                'multi-select-ext-field-control__menu-item_checked': Boolean(
+                  checked && !displayCheckboxes
+                ),
+              }
+            );
             return (
               <div
                 key={index}
-                data-value={item[valueField] ? (item[valueField] as unknown as string) : ''}
+                data-value={
+                  item[valueField]
+                    ? (item[valueField] as unknown as string)
+                    : ''
+                }
                 className={clsItem}
                 onClick={() => onChangeHandler(item[valueField] as unknown)}
               >
-                {displayCheckboxes && <CheckboxFieldControl checked={checked} />}
+                {displayCheckboxes && (
+                  <CheckboxFieldControl checked={checked} />
+                )}
                 {renderOption ? (
                   renderOption(item)
                 ) : (
@@ -242,7 +261,12 @@ export const MultiSelectExtFieldControlEdit = <ItemType,>(
         </div>
         <div className="multi-select-ext-field-control__buttons">
           {onCancel ? (
-            <Button size="small" variant="text" color="red" onClick={onCancelHandler}>
+            <Button
+              size="small"
+              variant="text"
+              color="red"
+              onClick={onCancelHandler}
+            >
               Cancel
             </Button>
           ) : (
@@ -251,12 +275,22 @@ export const MultiSelectExtFieldControlEdit = <ItemType,>(
             </Button>
           )}
           {onSave ? (
-            <Button size="small" variant="contained" color="blue" onClick={onSaveHandler}>
+            <Button
+              size="small"
+              variant="contained"
+              color="blue"
+              onClick={onSaveHandler}
+            >
               Select
             </Button>
           ) : (
             multiple && (
-              <Button size="small" variant="contained" color="blue" onClick={selectAll}>
+              <Button
+                size="small"
+                variant="contained"
+                color="blue"
+                onClick={selectAll}
+              >
                 Select all
               </Button>
             )

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {FormSection} from '@components/form';
 import {ITabItemProps, Tabs} from '@components/tab';
 
-enum tabNames {
+enum TabNames {
   description = 'description',
   compatible = 'compatible',
   warranty = 'warranty',
@@ -12,35 +12,35 @@ enum tabNames {
 const TAB_CONFIG: ITabItemProps[] = [
   {
     label: 'Product description',
-    value: tabNames.description,
-    content: tabNames.description,
+    value: TabNames.description,
+    content: TabNames.description,
   },
   {
     label: 'Compatible Products',
-    value: tabNames.compatible,
-    content: tabNames.compatible,
+    value: TabNames.compatible,
+    content: TabNames.compatible,
   },
   {
     label: 'Returns & warranty',
-    value: tabNames.warranty,
-    content: tabNames.warranty,
+    value: TabNames.warranty,
+    content: TabNames.warranty,
   },
   {
     label: 'Reviews & testimonials',
-    value: tabNames.reviews,
-    content: tabNames.reviews,
+    value: TabNames.reviews,
+    content: TabNames.reviews,
   },
   {
     label: 'Compare',
-    value: tabNames.compare,
-    content: tabNames.compare,
+    value: TabNames.compare,
+    content: TabNames.compare,
   },
 ];
 
 export const TabControls = () => {
   const [active, setActive] = useState<string>(TAB_CONFIG[0].value);
 
-  const onChangeTab = (_: React.ChangeEvent<{}>, value: string) => {
+  const onChangeTab = (_: React.ChangeEvent<unknown>, value: string) => {
     setActive(value);
   };
 

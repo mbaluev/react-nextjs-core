@@ -11,7 +11,11 @@ export const multiSelectExtRenderValue = <ItemType,>(
   const sel = (selected as unknown[])?.filter((s) => s);
   const selItems = items?.filter((item) => sel?.includes(item[valueField]));
   if (!selItems || selItems.length === 0) {
-    return <div className="multi-select-ext-field-control__placeholder">{placeholder}</div>;
+    return (
+      <div className="multi-select-ext-field-control__placeholder">
+        {placeholder}
+      </div>
+    );
   }
   if (renderValue) {
     return renderValue(selItems);

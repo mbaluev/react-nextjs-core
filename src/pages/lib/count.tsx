@@ -1,5 +1,5 @@
-import {Master} from '@/ui/system/master';
-import {CountFieldControls} from '@/ui/system/pages/lib/sections/CountFieldControls';
+import {Master} from '@ui/system/master';
+import {CountFieldControls} from '@ui/system/pages/lib/sections/CountFieldControls';
 
 const Count = () => {
   return <CountFieldControls />;

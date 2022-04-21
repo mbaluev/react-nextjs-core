@@ -1,22 +1,22 @@
-type objectType = Record<string, boolean>;
-type arrayType = Array<valueType>;
-type valueType = undefined | string | objectType | arrayType;
+type ObjectType = Record<string, boolean>;
+type ArrayType = Array<ValueType>;
+type ValueType = undefined | string | ObjectType | ArrayType;
 
-export const classNames = (...args: Array<valueType>): string => {
-  const _classNames: string[] = [];
+export const classNames = (...args: Array<ValueType>): string => {
+  const classNamesArr: string[] = [];
 
-  const handleObject = (object: objectType) => {
-    for (let key of Object.keys(object)) {
+  const handleObject = (object: ObjectType) => {
+    for (const key of Object.keys(object)) {
       if (object[key]) {
-        _classNames.push(key);
+        classNamesArr.push(key);
       }
     }
   };
 
-  const handleArray = (array: arrayType) => {
-    for (let item of array) {
+  const handleArray = (array: ArrayType) => {
+    for (const item of array) {
       if (typeof item === 'string') {
-        _classNames.push(item);
+        classNamesArr.push(item);
       } else if (Array.isArray(item)) {
         handleArray(item);
       } else if (typeof item === 'object') {
@@ -26,5 +26,5 @@ export const classNames = (...args: Array<valueType>): string => {
   };
 
   handleArray(args);
-  return _classNames.join(' ');
+  return classNamesArr.join(' ');
 };

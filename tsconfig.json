@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "src",
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -18,19 +18,26 @@
     "incremental": true,
     "experimentalDecorators": true,
     "paths": {
-      "@/*": ["./src/*"],
-      "@business/*": ["src/controller/business/*"],
-      "@errors/*": ["src/controller/errors/*"],
-      "@infrastructure/*": ["src/controller/infrastructure/*"],
-      "@integration/*": ["src/controller/integration/*"],
-      "@model/*": ["src/controller/model/*"],
-      "@viewModel/*": ["src/controller/viewModel/*"],
-      "@components/*": ["src/core/components/*"],
-      "@decorators/*": ["src/core/decorators/*"],
-      "@utils/*": ["src/core/utils/*"],
-      "@hooks/*": ["src/core/hooks/*"],
+      "@pages/*": ["pages/*"],
+      "@ui/*": ["ui/*"],
+      "@business/*": ["controller/business/*"],
+      "@errors/*": ["controller/errors/*"],
+      "@infrastructure/*": ["controller/infrastructure/*"],
+      "@integration/*": ["controller/integration/*"],
+      "@model/*": ["controller/model/*"],
+      "@viewModel/*": ["controller/viewModel/*"],
+      "@components/*": ["core/components/*"],
+      "@decorators/*": ["core/decorators/*"],
+      "@utils/*": ["core/utils/*"],
+      "@hooks/*": ["core/hooks/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "jest.config.js",
+    "next.config.js"
+  ],
   "exclude": ["node_modules"]
 }

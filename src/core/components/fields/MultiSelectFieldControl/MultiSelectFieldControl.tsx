@@ -17,10 +17,15 @@ export type MultiSelectFieldControlProps = SelectProps &
     value?: Array<unknown>;
   };
 
-export const MultiSelectFieldControl = (props: MultiSelectFieldControlProps) => {
+export const MultiSelectFieldControl = (
+  props: MultiSelectFieldControlProps
+) => {
   const {isEdit = true, loading, className, heightAuto, ...other} = props;
 
-  const cls = fieldControlClassNames('multi-select-field-control select-field-control', props);
+  const cls = fieldControlClassNames(
+    'multi-select-field-control select-field-control',
+    props
+  );
 
   if (loading) {
     return <SkeletonFieldControl className={cls} />;

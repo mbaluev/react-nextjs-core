@@ -1,5 +1,5 @@
-import {Master} from '@/ui/system/master';
-import {ToggleButtonControls} from '@/ui/system/pages/lib/sections/ToggleButtonControls';
+import {Master} from '@ui/system/master';
+import {ToggleButtonControls} from '@ui/system/pages/lib/sections/ToggleButtonControls';
 
 const Toggle = () => {
   return <ToggleButtonControls />;

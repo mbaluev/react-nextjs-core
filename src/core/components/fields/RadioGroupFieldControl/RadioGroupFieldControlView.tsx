@@ -2,7 +2,9 @@ import React from 'react';
 import {classNames} from '@utils/classNames/classNames';
 import {IRadioItem, RadioGroupFieldControlProps} from '@components/fields';
 
-export const RadioGroupFieldControlView = (props: RadioGroupFieldControlProps) => {
+export const RadioGroupFieldControlView = (
+  props: RadioGroupFieldControlProps
+) => {
   const {className, value} = props;
 
   const cls = classNames(className, {

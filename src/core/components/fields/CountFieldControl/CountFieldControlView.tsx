@@ -20,11 +20,15 @@ export const getCountDisplayViewValue = (
 export const CountFieldControlView = (props: CountFieldControlProps) => {
   const {className, value, format, endAdornment} = props;
 
-  const cls = classNames(className, {'field-control_no-data': !Boolean(value)});
+  const cls = classNames(className, {
+    'field-control_no-data': !Boolean(value),
+  });
 
   return !value ? (
     <div className={cls}>empty</div>
   ) : (
-    <div className={cls}>{getCountDisplayViewValue(value, format, endAdornment)}</div>
+    <div className={cls}>
+      {getCountDisplayViewValue(value, format, endAdornment)}
+    </div>
   );
 };

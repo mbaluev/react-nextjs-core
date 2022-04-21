@@ -1,5 +1,5 @@
-import {Master} from '@/ui/system/master';
-import {CheckboxFieldControls} from '@/ui/system/pages/lib/sections/CheckboxFieldControls';
+import {Master} from '@ui/system/master';
+import {CheckboxFieldControls} from '@ui/system/pages/lib/sections/CheckboxFieldControls';
 
 const Checkbox = () => {
   return <CheckboxFieldControls />;

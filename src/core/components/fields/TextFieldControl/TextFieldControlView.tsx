@@ -1,6 +1,9 @@
 import React from 'react';
 import {classNames} from '@utils/classNames/classNames';
-import {isTextFieldControlHasData, TextFieldControlProps} from '@components/fields';
+import {
+  isTextFieldControlHasData,
+  TextFieldControlProps,
+} from '@components/fields';
 
 export const TextFieldControlView = (props: TextFieldControlProps) => {
   const {className, value, viewFormat} = props;

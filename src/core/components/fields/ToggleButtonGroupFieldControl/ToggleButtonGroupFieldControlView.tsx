@@ -6,7 +6,9 @@ import {
   ToggleButtonGroupFieldControlProps,
 } from '@components/fields';
 
-export const ToggleButtonGroupFieldControlView = (props: ToggleButtonGroupFieldControlProps) => {
+export const ToggleButtonGroupFieldControlView = (
+  props: ToggleButtonGroupFieldControlProps
+) => {
   const {className, value, exclusive} = props;
 
   const cls = classNames(className, {
@@ -34,7 +36,9 @@ export const ToggleButtonGroupFieldControlView = (props: ToggleButtonGroupFieldC
     return ret;
   };
 
-  return typeof value !== 'undefined' && Array.isArray(value) && (value as []).length > 0 ? (
+  return typeof value !== 'undefined' &&
+    Array.isArray(value) &&
+    (value as []).length > 0 ? (
     <div className={cls}>{displayValue(exclusive)}</div>
   ) : (
     <div className={cls}>empty</div>

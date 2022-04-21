@@ -22,7 +22,11 @@ export const TextFieldControls = () => {
         <TextFieldControl disabled placeholder="disabled" />
         <TextFieldControl placeholder="simple" />
         <TextFieldControl placeholder="multiline" multiline minRows={5} />
-        <TextFieldControl placeholder="error" helperText="Error message" error={true} />
+        <TextFieldControl
+          placeholder="error"
+          helperText="Error message"
+          error={true}
+        />
       </FormField>
       <FormField title="2. TextFieldControl view">
         <Button

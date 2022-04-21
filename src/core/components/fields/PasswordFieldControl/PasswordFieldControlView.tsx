@@ -1,6 +1,9 @@
 import React from 'react';
 import {classNames} from '@utils/classNames/classNames';
-import {PasswordFieldControlProps, isTextFieldControlHasData} from '@components/fields';
+import {
+  PasswordFieldControlProps,
+  isTextFieldControlHasData,
+} from '@components/fields';
 
 export const PasswordFieldControlView = (props: PasswordFieldControlProps) => {
   const {className, value} = props;

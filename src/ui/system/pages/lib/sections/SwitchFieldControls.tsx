@@ -13,7 +13,11 @@ export const SwitchFieldControls = () => {
         <SwitchFieldControl label="disabled" disabled />
         <SwitchFieldControl label="disabled checked" value={true} disabled />
         <SwitchFieldControl label="simple" />
-        <SwitchFieldControl label="error" error={true} helperText="Error message" />
+        <SwitchFieldControl
+          label="error"
+          error={true}
+          helperText="Error message"
+        />
       </FormField>
       <FormField title="2. CheckboxFieldControl view">
         <Button

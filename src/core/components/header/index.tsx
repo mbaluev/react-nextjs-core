@@ -6,8 +6,14 @@ import {HeaderMobile} from '@components/header/headerMobile';
 import {HeaderItem} from '@components/header/headerItem';
 import {HeaderLink} from '@components/header/headerLink';
 import {HeaderIcon} from '@components/header/headerIcon';
-import {HeaderItemSearch, IHeaderItemSearchProps} from '@components/header/headerItemSearch';
-import {HeaderItemFilter, IHeaderItemFilterProps} from '@components/header/headerItemFilter';
+import {
+  HeaderItemSearch,
+  IHeaderItemSearchProps,
+} from '@components/header/headerItemSearch';
+import {
+  HeaderItemFilter,
+  IHeaderItemFilterProps,
+} from '@components/header/headerItemFilter';
 import './index.scss';
 
 export interface IHeaderItemProps {

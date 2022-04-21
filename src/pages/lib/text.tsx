@@ -1,5 +1,5 @@
-import {Master} from '@/ui/system/master';
-import {TextFieldControls} from '@/ui/system/pages/lib/sections/TextFieldControls';
+import {Master} from '@ui/system/master';
+import {TextFieldControls} from '@ui/system/pages/lib/sections/TextFieldControls';
 
 const Text = () => {
   return <TextFieldControls />;

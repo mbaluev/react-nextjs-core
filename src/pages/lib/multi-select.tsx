@@ -1,5 +1,5 @@
-import {Master} from '@/ui/system/master';
-import {MultiSelectFieldControls} from '@/ui/system/pages/lib/sections/MultiSelectFieldControls';
+import {Master} from '@ui/system/master';
+import {MultiSelectFieldControls} from '@ui/system/pages/lib/sections/MultiSelectFieldControls';
 
 const MultiSelect = () => {
   return <MultiSelectFieldControls />;

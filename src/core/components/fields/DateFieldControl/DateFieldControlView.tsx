@@ -9,7 +9,9 @@ export const DateFieldControlView = (props: DateFieldControlProps) => {
 
   let displayValue = '';
   if (value && isValid(value)) {
-    displayValue = moment(value, [inputFormat, moment.ISO_8601]).format(inputFormat);
+    displayValue = moment(value, [inputFormat, moment.ISO_8601]).format(
+      inputFormat
+    );
   } else if (value) {
     displayValue = 'Invalid Date';
   }
@@ -18,5 +20,9 @@ export const DateFieldControlView = (props: DateFieldControlProps) => {
     'field-control_no-data': !value || displayValue === 'Invalid Date',
   });
 
-  return value ? <div className={cls}>{displayValue}</div> : <div className={cls}>empty</div>;
+  return value ? (
+    <div className={cls}>{displayValue}</div>
+  ) : (
+    <div className={cls}>empty</div>
+  );
 };

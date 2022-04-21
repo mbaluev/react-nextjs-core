@@ -1,5 +1,9 @@
 import React, {FC, useState} from 'react';
-import {Accordion as AccordionMui, AccordionDetails, AccordionSummary} from '@mui/material';
+import {
+  Accordion as AccordionMui,
+  AccordionDetails,
+  AccordionSummary,
+} from '@mui/material';
 import {ExpandMore} from '@mui/icons-material';
 import {Button, IButtonProps} from '@components/button';
 import './index.scss';
@@ -14,8 +18,15 @@ interface IProps {
 }
 
 export const Accordion: FC<IProps> = (props) => {
-  const {title, className, children, footer, footerButtons, isExpanded, onExpand} = props;
-
+  const {
+    title,
+    className,
+    children,
+    footer,
+    footerButtons,
+    isExpanded,
+    onExpand,
+  } = props;
   const [expanded, setExpanded] = useState<boolean>(Boolean(isExpanded));
 
   const cls = ['accordion'];
@@ -27,7 +38,7 @@ export const Accordion: FC<IProps> = (props) => {
     setExpanded(!expanded);
   };
 
-  const AccordionFooter = () => {
+  function AccordionFooter() {
     if (footerButtons && expanded) {
       return (
         <div className="accordion__footer">
@@ -38,12 +49,12 @@ export const Accordion: FC<IProps> = (props) => {
           </div>
         </div>
       );
-    } else if (footer && expanded) {
-      return <div className="accordion__footer" />;
-    } else {
-      return null;
     }
-  };
+    if (footer && expanded) {
+      return <div className="accordion__footer" />;
+    }
+    return null;
+  }
 
   return (
     <div className={cls.join(' ')}>

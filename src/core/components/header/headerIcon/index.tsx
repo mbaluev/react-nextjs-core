@@ -8,7 +8,10 @@ import './index.scss';
 export const HeaderIcon = (props: IHeaderItemProps) => {
   const {path, query, icon, isActive, dot} = props;
 
-  const cls = classNames('header__icon', isActive ? 'header__icon_active' : undefined);
+  const cls = classNames(
+    'header__icon',
+    isActive ? 'header__icon_active' : undefined
+  );
 
   return (
     <Link
@@ -16,6 +19,7 @@ export const HeaderIcon = (props: IHeaderItemProps) => {
         pathname: path,
         query: query,
       }}
+      passHref
     >
       <div className={cls}>
         {icon}

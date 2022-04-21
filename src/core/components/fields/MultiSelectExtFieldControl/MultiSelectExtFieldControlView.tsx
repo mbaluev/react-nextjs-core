@@ -1,6 +1,9 @@
 import React from 'react';
 import {classNames} from '@utils/classNames/classNames';
-import {MultiSelectExtFieldControlProps, multiSelectExtRenderValue} from '@components/fields';
+import {
+  MultiSelectExtFieldControlProps,
+  multiSelectExtRenderValue,
+} from '@components/fields';
 
 export const MultiSelectExtFieldControlView = <ItemType,>(
   props: MultiSelectExtFieldControlProps<ItemType>
@@ -21,7 +24,14 @@ export const MultiSelectExtFieldControlView = <ItemType,>(
 
   return value && value.length > 0 ? (
     <div className={cls}>
-      {multiSelectExtRenderValue(value, valueField, labelField, items, placeholder, renderValue)}
+      {multiSelectExtRenderValue(
+        value,
+        valueField,
+        labelField,
+        items,
+        placeholder,
+        renderValue
+      )}
     </div>
   ) : (
     <div className={cls}>empty</div>

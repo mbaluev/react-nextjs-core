@@ -6,7 +6,13 @@ interface IProps {
 }
 const ViewFormatPhone = (props: IProps) => {
   const {value} = props;
-  return <NumberFormat value={value} format="+7 (###) ###-##-##" displayType="text" />;
+  return (
+    <NumberFormat
+      value={value}
+      format="+7 (###) ###-##-##"
+      displayType="text"
+    />
+  );
 };
 export const viewFormatPhone = (value?: string | number | null) => {
   return <ViewFormatPhone value={value} />;

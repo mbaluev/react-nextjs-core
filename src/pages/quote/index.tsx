@@ -1,5 +1,5 @@
 import {PageLayout} from '@components/pageLayout';
-import {Master} from '@/ui/shop/master';
+import {Master} from '@ui/shop/master';
 
 const QuoteList = () => {
   return <PageLayout title="Quote List">Quote List</PageLayout>;

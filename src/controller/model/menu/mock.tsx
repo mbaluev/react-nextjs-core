@@ -14,6 +14,10 @@ export const MENU_CONFIG: IMenuItemDTO[] = [
     path: ROUTER_CONST.WISH_LIST.path,
     position: 'right',
   },
-  {icon: <ShoppingCartIcon />, path: ROUTER_CONST.CART.path, position: 'right'},
+  {
+    icon: <ShoppingCartIcon />,
+    path: ROUTER_CONST.CART.path,
+    position: 'right',
+  },
   {icon: <PersonIcon />, path: ROUTER_CONST.PROFILE.path, position: 'right'},
 ];

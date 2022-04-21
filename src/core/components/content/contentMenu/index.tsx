@@ -23,7 +23,7 @@ export const ContentMenu = (props: IContentProps) => {
           });
           return (
             <li key={index} className={clsItem}>
-              <Link href={`${router.pathname}/#${item.id}`}>
+              <Link href={`${router.pathname}/#${item.id}`} passHref>
                 <div>{item.label}</div>
               </Link>
             </li>

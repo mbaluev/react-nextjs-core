@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {classNames} from '@utils/classNames/classNames';
-import {BreadCrumb, TBreadCrumb} from './breadCrumb';
+import {BreadCrumb, TBreadCrumb} from '@components/breadCrumbs/breadCrumb';
 import './index.scss';
 
 interface IProps {

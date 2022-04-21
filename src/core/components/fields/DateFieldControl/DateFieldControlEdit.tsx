@@ -29,6 +29,7 @@ export const DateFieldControlEdit = (props: DateFieldControlProps) => {
         mask={mask}
         inputFormat={inputFormat}
         renderInput={(inputProps) => {
+          // eslint-disable-next-line @typescript-eslint/naming-convention
           const {value: _inputPropsValue, ...otherProps} = inputProps;
           return (
             <TextFieldControl

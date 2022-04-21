@@ -1,11 +1,19 @@
 import React, {useState} from 'react';
-import {FormControl, FormHelperText, InputLabel, MenuItem, Select} from '@mui/material';
+import {
+  FormControl,
+  FormHelperText,
+  InputLabel,
+  MenuItem,
+  Select,
+} from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {useUpdateEffect} from '@hooks/useUpdateEffect';
 import {classNames} from '@utils/classNames/classNames';
 import {MultiSelectFieldControlProps} from '@components/fields';
 
-export const MultiSelectFieldControlEdit = (props: MultiSelectFieldControlProps) => {
+export const MultiSelectFieldControlEdit = (
+  props: MultiSelectFieldControlProps
+) => {
   const {
     className,
     variant,
@@ -79,7 +87,9 @@ export const MultiSelectFieldControlEdit = (props: MultiSelectFieldControlProps)
           );
         })}
       </Select>
-      {helperText && <FormHelperText error={!!error}>{helperText}</FormHelperText>}
+      {helperText && (
+        <FormHelperText error={!!error}>{helperText}</FormHelperText>
+      )}
     </FormControl>
   );
 };

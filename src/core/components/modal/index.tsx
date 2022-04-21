@@ -19,8 +19,19 @@ interface IModalProps {
 }
 
 export const Modal: FC<IModalProps> = (props) => {
-  const {className, title, isOpen, onClose, footerButtons, fullScreen, allowFullScreen, children} =
-    props;
+  const {
+    className,
+    title,
+    isOpen,
+    onClose,
+    footerButtons,
+    fullScreen,
+    allowFullScreen,
+    children,
+  } = props;
+
+  const [isShake, setIsShake] = useState(false);
+  const [isFullScreen, setIsFullScreen] = useState(fullScreen);
 
   const shake = (e: any) => {
     if (e.target === e.currentTarget) setIsShake(true);
@@ -35,9 +46,6 @@ export const Modal: FC<IModalProps> = (props) => {
     onClose();
     setIsFullScreen(fullScreen);
   };
-
-  const [isShake, setIsShake] = useState(false);
-  const [isFullScreen, setIsFullScreen] = useState(fullScreen);
 
   const draggableCls = classNames('modal-draggable', {
     'modal-draggable_full-screen': Boolean(isFullScreen),
@@ -63,7 +71,11 @@ export const Modal: FC<IModalProps> = (props) => {
   return isOpen ? (
     <div className="modal">
       <div className="modal-backdrop" />
-      <div className="modal-container" onMouseDown={shake} onAnimationEnd={shakeEnd}>
+      <div
+        className="modal-container"
+        onMouseDown={shake}
+        onAnimationEnd={shakeEnd}
+      >
         <Draggable handle=".modal-title" bounds="parent">
           <div className={draggableCls}>
             <div className={dialogCls}>
@@ -71,7 +83,10 @@ export const Modal: FC<IModalProps> = (props) => {
                 <div className="modal-title-text">{title}</div>
                 <div className="modal-title-buttons">
                   {allowFullScreen && (
-                    <div className="modal-title-button" onClick={fullScreenChange}>
+                    <div
+                      className="modal-title-button"
+                      onClick={fullScreenChange}
+                    >
                       <FullScreenIcon />
                     </div>
                   )}

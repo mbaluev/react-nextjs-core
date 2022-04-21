@@ -43,7 +43,10 @@ export const SampleForm = (props: ISimpleModalFormProps) => {
           />
         </FormField>
         <FormField isRow={isRow} title="Enter your personal phone number">
-          <TextFieldControl InputProps={inputPropsPhone()} viewFormat={viewFormatPhone} />
+          <TextFieldControl
+            InputProps={inputPropsPhone()}
+            viewFormat={viewFormatPhone}
+          />
         </FormField>
       </FormSection>
     </Form>

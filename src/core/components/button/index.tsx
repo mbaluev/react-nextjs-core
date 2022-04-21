@@ -1,5 +1,8 @@
 import React, {FC} from 'react';
-import {Button as MuiButton, ButtonProps as MuiButtonProps} from '@mui/material';
+import {
+  Button as MuiButton,
+  ButtonProps as MuiButtonProps,
+} from '@mui/material';
 import {classNames} from '@utils/classNames/classNames';
 import './index.scss';
 

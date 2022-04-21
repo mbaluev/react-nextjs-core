@@ -13,7 +13,7 @@ export interface ITabItemProps {
 }
 export interface ITabsProps {
   className?: string;
-  onChangeTab: (_: React.ChangeEvent<{}>, newValue: string) => void;
+  onChangeTab: (_: React.ChangeEvent<unknown>, newValue: string) => void;
   tabs: ITabItemProps[];
   activeTab: string;
 }

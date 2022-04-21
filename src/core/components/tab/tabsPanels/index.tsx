@@ -7,7 +7,11 @@ export const TabsPanels = (props: ITabsProps) => {
     <React.Fragment>
       {tabs.map((tab) => {
         return tab.hide ? null : (
-          <TabsPanel key={tab.value} active={tab.value === activeTab} className={tab.className}>
+          <TabsPanel
+            key={tab.value}
+            active={tab.value === activeTab}
+            className={tab.className}
+          >
             {tab.content}
           </TabsPanel>
         );

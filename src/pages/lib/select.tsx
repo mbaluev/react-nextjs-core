@@ -1,5 +1,5 @@
-import {Master} from '@/ui/system/master';
-import {SelectFieldControls} from '@/ui/system/pages/lib/sections/SelectFieldControls';
+import {Master} from '@ui/system/master';
+import {SelectFieldControls} from '@ui/system/pages/lib/sections/SelectFieldControls';
 
 const Select = () => {
   return <SelectFieldControls />;

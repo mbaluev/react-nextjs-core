@@ -12,7 +12,11 @@ export const PasswordFieldControls = () => {
       <FormField title="1. PasswordFieldControl">
         <PasswordFieldControl placeholder="disabled" disabled value="qwe" />
         <PasswordFieldControl placeholder="simple" />
-        <PasswordFieldControl placeholder="error" error={true} helperText="Error message" />
+        <PasswordFieldControl
+          placeholder="error"
+          error={true}
+          helperText="Error message"
+        />
       </FormField>
       <FormField title="2. PasswordFieldControl view">
         <Button

@@ -2,16 +2,20 @@ import {useCallback, useEffect, useRef, useState} from 'react';
 import useThrottledOnScroll from '../useThrottledOnScroll';
 import {IContentItemProps} from '@components/content';
 
-const useScrollSpy = (elementId: string, items: IContentItemProps[], offset?: number) => {
+const getItemsClient = (items: IContentItemProps[]) => {
+  return items.map(({id}) => {
+    return {id, node: document.getElementById(id)};
+  });
+};
+
+const useScrollSpy = (
+  elementId: string,
+  items: IContentItemProps[],
+  offset?: number
+) => {
   const itemsWithNodeRef = useRef<any[]>([]);
   let targetItem = null;
   let targetRect = null;
-
-  useEffect(() => {
-    itemsWithNodeRef.current = getItemsClient(items);
-    findActiveIndex();
-    // eslint-disable-next-line
-  }, [items]);
 
   const [active, setActive] = useState<string>('');
 
@@ -25,7 +29,6 @@ const useScrollSpy = (elementId: string, items: IContentItemProps[], offset?: nu
       const top =
         itemRect?.top +
         node.clientHeight -
-        // @ts-ignore
         (targetRect ? targetRect.top : 0) -
         (offset ? offset : 0) -
         1;
@@ -44,15 +47,15 @@ const useScrollSpy = (elementId: string, items: IContentItemProps[], offset?: nu
     // eslint-disable-next-line
   }, [active, offset]);
 
+  useEffect(() => {
+    itemsWithNodeRef.current = getItemsClient(items);
+    findActiveIndex();
+    // eslint-disable-next-line
+  }, [items]);
+
   useThrottledOnScroll(elementId, findActiveIndex, 100);
 
   return {active, setActive};
-};
-
-const getItemsClient = (items: IContentItemProps[]) => {
-  return items.map(({id}) => {
-    return {id, node: document.getElementById(id)};
-  });
 };
 
 export default useScrollSpy;

@@ -9,21 +9,23 @@ export const useTableCheckbox = <T>(items: IUseTableCheckbox<T>[]) => {
   const [checkedIds, setCheckedIds] = useState<string[]>([]);
 
   const onCheckAll = (checked: boolean) => {
-    const _checkedIds: string[] = [];
+    const newCheckedIds: string[] = [];
     items.forEach((item) => {
-      if (!item.disabled && checked) _checkedIds.push(item.id);
+      if (!item.disabled && checked) newCheckedIds.push(item.id);
     });
-    setCheckedIds(_checkedIds);
+    setCheckedIds(newCheckedIds);
   };
 
   const onCheck = (id: string, checked: boolean) => {
     if (checked) {
-      const _checkedIds: string[] = [...checkedIds];
-      _checkedIds.push(id);
-      setCheckedIds(_checkedIds);
+      const newCheckedIds: string[] = [...checkedIds];
+      newCheckedIds.push(id);
+      setCheckedIds(newCheckedIds);
     } else {
-      const _checkedIds: string[] = [...checkedIds.filter((_id) => _id !== id)];
-      setCheckedIds(_checkedIds);
+      const newCheckedIds: string[] = [
+        ...checkedIds.filter((_id) => _id !== id),
+      ];
+      setCheckedIds(newCheckedIds);
     }
   };
 

@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import {useRouter} from 'next/router';
 import {PageLayout} from '@components/pageLayout';
 import {Layout} from '@components/layout';
-import {HEADER_ITEMS} from '@/ui/system/settings/headerItems';
+import {HEADER_ITEMS} from '@ui/system/settings/headerItems';
 import './index.scss';
 
 export const Master: FC = (props) => {

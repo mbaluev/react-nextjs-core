@@ -25,7 +25,11 @@ export const SelectFieldControls = () => {
   return (
     <FormSection title="SelectField" id="select">
       <FormField title="1. SelectFieldControl">
-        <SelectFieldControl placeholder="disabled" items={SelectList} disabled />
+        <SelectFieldControl
+          placeholder="disabled"
+          items={SelectList}
+          disabled
+        />
         <SelectFieldControl placeholder="simple" items={SelectList} />
         <SelectFieldControl
           placeholder="error"

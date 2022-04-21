@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {default as NextImage} from 'next/image';
 import {classNames} from '@utils/classNames/classNames';
 import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined';
 import './index.less';
@@ -14,8 +15,16 @@ export interface IMediaDTO {
   alt?: string;
 }
 
-export const useLazyImage = (media: IMediaDTO, className?: string, muiIcon?: JSX.Element) => {
+export const useLazyImage = (
+  media: IMediaDTO,
+  className?: string,
+  muiIcon?: JSX.Element
+) => {
   const [loaded, setLoaded] = useState<boolean>(false);
+
+  const onLoad = () => {
+    setLoaded(true);
+  };
 
   useEffect(() => {
     const img = new Image();
@@ -23,20 +32,22 @@ export const useLazyImage = (media: IMediaDTO, className?: string, muiIcon?: JSX
     img.src = media.url;
   }, [media]);
 
-  const onLoad = () => {
-    setLoaded(true);
-  };
-
   const LazyImage = () => {
     const cls = classNames(className, 'lazy-image');
     if (loaded) {
       return (
         <div className={cls}>
-          <img className="lazy-image__img" src={media.url} alt={media.alt} />
+          <NextImage
+            className="lazy-image__img"
+            src={media.url}
+            alt={media.alt}
+          />
         </div>
       );
     } else if (media.background) {
-      return <div className={cls} style={{backgroundColor: media.background}} />;
+      return (
+        <div className={cls} style={{backgroundColor: media.background}} />
+      );
     } else if (muiIcon) {
       return <div className={cls}>muiIcon</div>;
     } else {

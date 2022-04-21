@@ -1,7 +1,7 @@
-import {BaseListDTO} from '@/controller/model/baseList';
+import {BaseListDTO} from '@model/baseList';
 
 export function dBaseList(
-  target: Object,
+  target: unknown,
   _propertyKey: string | symbol,
   descriptor: TypedPropertyDescriptor<any>
 ) {

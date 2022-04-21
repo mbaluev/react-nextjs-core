@@ -12,7 +12,10 @@ export type BaseFieldControlProps = {
   heightAuto?: boolean;
 };
 
-export const fieldControlClassNames = (className: string, props: BaseFieldControlProps) => {
+export const fieldControlClassNames = (
+  className: string,
+  props: BaseFieldControlProps
+) => {
   const {
     className: classNameProps,
     isEdit = true,
