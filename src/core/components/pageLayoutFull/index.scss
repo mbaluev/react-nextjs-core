@@ -1,0 +1,51 @@
+@import "../../scss/params.scss";
+
+$padding: $base * 4;
+
+.page-layout-full {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 0;
+
+  &__filter,
+  &__bread-crumbs,
+  &__top,
+  &__container {
+    width: 100%;
+  }
+
+  &__filter {
+    background-color: $color-grey-20;
+  }
+
+  &__bread-crumbs {
+    flex: 0 0 auto;
+    font-size: 1rem;
+    line-height: normal;
+    border-bottom: solid 1px $color-grey-30;
+    padding: $base * 4 $base * 4 $base * 3;
+  }
+
+  &__top {
+    display: flex;
+    padding: $base * 2 $base * 2 0;
+  }
+  &__title {
+    flex: 1 1 auto;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: $base * 2;
+  }
+
+  &__container {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+
+    &_padding {
+      padding: $base * 2 $base * 4 $base * 4;
+    }
+  }
+}

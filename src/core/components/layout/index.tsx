@@ -1,5 +1,4 @@
 import React, {FC} from 'react';
-import {Footer} from '../footer';
 import {Header, IHeaderProps} from '@components/header';
 import {ILoaderProps, Loader} from '@components/loader';
 import {classNames} from '@utils/classNames/classNames';
@@ -20,7 +19,6 @@ export const Layout: FC<ILayoutProps> = (props) => {
       <Header {...headerProps} />
       <div className="layout__content" id={contentId}>
         {children}
-        <Footer />
       </div>
       <Loader {...loaderProps} />
     </div>
