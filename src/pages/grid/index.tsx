@@ -1,12 +1,17 @@
 import {Master} from '@ui/shop/master';
-import {PageLayoutFull} from '@components/pageLayoutFull';
 import {Table} from '@components/table';
+import {PageLayout} from '@components/pageLayout';
+import numeral from 'numeral';
 
 const Grid = () => {
+  const rowCount = 1000;
+  const rowCountStr = numeral(rowCount).format();
   return (
-    <PageLayoutFull>
-      <Table />
-    </PageLayoutFull>
+    <PageLayout
+      title={`Virtualized table with window scroller (${rowCountStr} items)`}
+    >
+      <Table rowCount={rowCount} />
+    </PageLayout>
   );
 };
 

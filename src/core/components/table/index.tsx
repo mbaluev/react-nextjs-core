@@ -1,12 +1,16 @@
 import React from 'react';
 import {
-  Grid,
+  Table as VTable,
+  Column as VColumn,
   WindowScroller,
   AutoSizer,
   GridCellProps,
+  TableRowProps,
 } from 'react-virtualized';
+import {classNames} from '@utils/classNames/classNames';
+import 'react-virtualized/styles.css';
+import './index.scss';
 
-// Grid data as an array of arrays
 const listItem = [
   1,
   'Brian Vaughn',
@@ -35,6 +39,21 @@ for (let i = 1; i < 100; i++) {
 //     width={width}
 // />
 
+// <Grid
+// className="table"
+// cellRenderer={cellRenderer}
+// columnCount={list[0].length}
+// columnWidth={300}
+// rowCount={list.length}
+// rowHeight={40}
+// height={height}
+// width={width}
+// isScrolling={isScrolling}
+// onScroll={onChildScroll}
+// scrollTop={scrollTop}
+// style={{height: 'auto'}}
+// />
+
 // const rowRenderer = (props: ListRowProps) => {
 //   const {key, index, style} = props;
 //   return (
@@ -46,49 +65,113 @@ for (let i = 1; i < 100; i++) {
 
 const cellRenderer = (props: GridCellProps) => {
   const {columnIndex, key, rowIndex, style} = props;
+  const cls = classNames('table-cell', {
+    'table-cell_first': columnIndex === 0,
+    'table-cell_last': columnIndex === list[rowIndex].length - 1,
+    'table-row_first': rowIndex === 0,
+    'table-row_last': rowIndex === list.length - 1,
+  });
   return (
-    <div
-      key={key}
-      style={{
-        ...style,
-        borderTop: 'solid 1px #eee',
-        borderRight: 'solid 1px #eee',
-        display: 'flex',
-        alignItems: 'center',
-        padding: '10px',
-      }}
-    >
+    <div key={key} className={cls} style={style}>
       {list[rowIndex][columnIndex]}
     </div>
   );
 };
 
-export const Table = () => {
+interface ITable {
+  rowCount?: number;
+}
+
+export const Table = (props: ITable) => {
+  const {rowCount = 100} = props;
+  const tableItem = {
+    index: 1,
+    name: 'Brian Vaughn',
+    description: 'Software Engineer',
+  };
+  const tableList: any[] = [];
+  for (let i = 1; i < rowCount; i++) {
+    const item = {...tableItem};
+    item.index = i;
+    tableList.push(item);
+  }
   return (
     <WindowScroller>
       {({height, isScrolling, onChildScroll, scrollTop, registerChild}) => {
         return (
-          <AutoSizer disableHeight>
+          <AutoSizer
+            disableHeight
+            className="table-auto-sizer"
+            style={{width: 'auto'}}
+          >
             {({width}) => {
               return (
-                <div ref={registerChild}>
-                  <Grid
-                    cellRenderer={cellRenderer}
-                    columnCount={list[0].length}
-                    columnWidth={
-                      typeof window !== 'undefined'
-                        ? window.innerWidth / list[0].length
-                        : 100
-                    }
-                    rowCount={list.length}
-                    rowHeight={40}
+                <div ref={registerChild} className="table-register-child">
+                  <VTable
+                    autoHeight={true}
                     height={height}
                     width={width}
+                    headerHeight={40}
+                    rowHeight={40}
+                    rowCount={tableList.length}
+                    rowGetter={({index}) => tableList[index]}
                     isScrolling={isScrolling}
                     onScroll={onChildScroll}
                     scrollTop={scrollTop}
-                    style={{height: 'auto'}}
-                  />
+                    rowClassName="table-row"
+                    gridClassName="table-grid"
+                    className="table"
+                  >
+                    <VColumn
+                      className="table-cell"
+                      headerClassName="table-cell"
+                      label="#"
+                      dataKey="index"
+                      width={100}
+                    />
+                    <VColumn
+                      className="table-cell"
+                      headerClassName="table-cell"
+                      label="Name"
+                      dataKey="name"
+                      width={200}
+                    />
+                    <VColumn
+                      className="table-cell"
+                      headerClassName="table-cell"
+                      width={200}
+                      label="Description"
+                      dataKey="description"
+                    />
+                    <VColumn
+                      className="table-cell"
+                      headerClassName="table-cell"
+                      width={200}
+                      label="Description"
+                      dataKey="description"
+                    />
+                    <VColumn
+                      className="table-cell"
+                      headerClassName="table-cell"
+                      width={200}
+                      label="Description"
+                      dataKey="description"
+                    />
+                    <VColumn
+                      className="table-cell"
+                      headerClassName="table-cell"
+                      width={200}
+                      label="Description"
+                      dataKey="description"
+                    />
+                    <VColumn
+                      className="table-cell"
+                      headerClassName="table-cell"
+                      width={200}
+                      label="Description"
+                      dataKey="description"
+                    />
+                  </VTable>
                 </div>
               );
             }}

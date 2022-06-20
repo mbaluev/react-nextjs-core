@@ -1,0 +1,29 @@
+@import "../../scss/params.scss";
+
+.table {
+  border: solid 1px #eee;
+  border-radius: $base * 2;
+
+  &-auto-sizer {}
+
+  &-cell {
+    height: 100%;
+    padding: 10px;
+    margin: 0 !important;
+    border-right: solid 1px #eee;
+
+    &_first {}
+    &:last-child {
+      border-right: none;
+    }
+  }
+
+  &-row {
+    border-bottom: solid 1px #eee;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+}

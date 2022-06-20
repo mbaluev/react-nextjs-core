@@ -31,4 +31,8 @@ export const ROUTER_CONST = {
     name: 'quote',
     path: '/quote/[id]',
   },
+  GRID: {
+    name: 'grid',
+    path: '/grid',
+  },
 };

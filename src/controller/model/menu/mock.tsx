@@ -7,6 +7,7 @@ import {ROUTER_CONST} from '@model/route';
 
 export const MENU_CONFIG: IMenuItemDTO[] = [
   {label: 'Home', path: ROUTER_CONST.HOME.path, position: 'left'},
+  {label: 'Grid', path: ROUTER_CONST.GRID.path, position: 'left'},
   {label: 'Catalog', path: ROUTER_CONST.PRODUCT_LIST.path, position: 'left'},
   {label: 'Quotes', path: ROUTER_CONST.QUOTE_LIST.path, position: 'left'},
   {
