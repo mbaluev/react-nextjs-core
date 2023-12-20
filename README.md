@@ -1,4 +1,4 @@
-# react-nextjs-core
+# --NOT FINISHED-- react-nextjs-core
 
 ## How to use
 
